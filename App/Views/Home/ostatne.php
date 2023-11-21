@@ -1,74 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ostatné</title>
+<?php
 
-    <!-- jquery a bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha384-KyZXEAg3QhqLMpG8r+7YvNWzWs1q8i5zP8FN6bVS5UJ6V5zY47cs2X6pTI1tbUS5B"
-            crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<!-- navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Eighth navbar example">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">dopravanaslovensku.sk</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
-                aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+/** @var Array $data */
 
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="dialnice.html" aria-expanded="false">Diaľnice</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">D1</a></li>
-                        <li><a class="dropdown-item" href="#">D2</a></li>
-                        <li><a class="dropdown-item" href="#">D3</a></li>
-                        <li><a class="dropdown-item" href="#">D4</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="rychlostnecesty.html" aria-expanded="false">Rýchlostné
-                        cesty</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">R1</a></li>
-                        <li><a class="dropdown-item" href="#">R2</a></li>
-                        <li><a class="dropdown-item" href="#">R3</a></li>
-                        <li><a class="dropdown-item" href="#">R4</a></li>
-                        <li><a class="dropdown-item" href="#">R5</a></li>
-                        <li><a class="dropdown-item" href="#">R6</a></li>
-                        <li><a class="dropdown-item" href="#">R7</a></li>
-                        <li><a class="dropdown-item" href="#">R8</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="zeleznice.html">Železnice</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ostatne.html">Ostatné</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav  mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="login.html" aria-expanded="false"><i class="bi bi-person-circle"></i>Prihlásiť
-                        sa</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- koniec navbar -->
-<div class="content">
-    <p>Rekonštrukcie ciest I. triedy</p>
+/** @var \App\Core\LinkGenerator $link */
+?>
+
+<p>Rekonštrukcie ciest I. triedy</p>
     <p>Opravy mostov</p>
     <p>Mestská hromadná doprava.</p>
     <p>Cyklochodníky</p>
@@ -90,8 +27,8 @@
                     </div>
                     <a href="https://poprad.dnes24.sk/vyskytli-sa-aj-komplikacie-takto-prebieha-rekonstrukcia-horskeho-priechodu-vernar-foto-440664?ref=dopravanaslovensku.sk"
                        class="icon-link gap-1 icon-link-hover stretched-link" style="margin-bottom: 0.8em">
-                        Čítať viac
-                        <svg class="bi">
+    Čítať viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -122,8 +59,8 @@
                     </div>
                     <a href="https://spis.korzar.sme.sk/c/23235295/priprava-obchvatu-velkej-lomnice-pokracuje-kraj-ide-vykupovat-pozemky.html?ref=dopravanaslovensku.sk"
                        class="icon-link gap-1 icon-link-hover stretched-link" style="margin-bottom: 0.8em">
-                        Čítať viac
-                        <svg class="bi">
+    Čítať viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -157,8 +94,8 @@
                     </div>
                     <a href="https://www.rimava.sk/spravy-z-regionu/prace-na-vystavbe-kruhoveho-objazdu-na-sobotke-zacnu-uz-buduci-tyzden-dovodom-ich-zdrzania-bolo-dopravne-znacenie/?ref=dopravanaslovensku.sk"
                        class="icon-link gap-1 icon-link-hover stretched-link" style="margin-bottom: 0.8em">
-                        Čítať viac
-                        <svg class="bi">
+    Čítať viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -175,21 +112,3 @@
             </div>
         </div>
     </div>
-
-</div>
-
-<footer class="bg-dark text-light p-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h6>Kontakt:</h6>
-                <a href="mailto:info@dopravanaslovensku.sk">info@dopravanaslovensku.sk</a>
-            </div>
-            <div class="col-md-6">
-                <p class="text-right">© 2023 dopravanaslovensku.sk</p>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>

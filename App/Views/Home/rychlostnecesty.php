@@ -1,67 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Rýchlostné cesty</title>
+<?php
 
-    <!-- jquery a bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+7YvNWzWs1q8i5zP8FN6bVS5UJ6V5zY47cs2X6pTI1tbUS5B" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<!-- navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Eighth navbar example">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">dopravanaslovensku.sk</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+/** @var Array $data */
 
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="dialnice.html" aria-expanded="false">Diaľnice</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">D1</a></li>
-                        <li><a class="dropdown-item" href="#">D2</a></li>
-                        <li><a class="dropdown-item" href="#">D3</a></li>
-                        <li><a class="dropdown-item" href="#">D4</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="rychlostnecesty.html" aria-expanded="false">Rýchlostné cesty</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">R1</a></li>
-                        <li><a class="dropdown-item" href="#">R2</a></li>
-                        <li><a class="dropdown-item" href="#">R3</a></li>
-                        <li><a class="dropdown-item" href="#">R4</a></li>
-                        <li><a class="dropdown-item" href="#">R5</a></li>
-                        <li><a class="dropdown-item" href="#">R6</a></li>
-                        <li><a class="dropdown-item" href="#">R7</a></li>
-                        <li><a class="dropdown-item" href="#">R8</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="zeleznice.html">Železnice</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ostatne.html">Ostatné</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav  mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="login.html" aria-expanded="false"><i class="bi bi-person-circle"></i>Prihlásiť sa</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- koniec navbar -->
-<div class="content">
+/** @var \App\Core\LinkGenerator $link */
+?>
 
-    <div class="row mb-3 p-3">
+<div class="row mb-3 p-3">
         <!-- -----------------------R1-------------------- -->
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -73,18 +17,18 @@
                          aria-valuemax="100">
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 65%;" aria-valuenow="65"
                              aria-valuemin="0" aria-valuemax="100">
-                            177,1 km
-                        </div>
+    177,1 km
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 35%;" aria-valuenow="35"
                              aria-valuemin="0" aria-valuemax="100">
-                            93,4 km
-                        </div>
+    93,4 km
+</div>
                     </div>
 
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R1_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -109,20 +53,20 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 20%;" aria-valuenow="20"
                              aria-valuemin="0" aria-valuemax="100">68,2 km
-                        </div>
+</div>
                         <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 7%;" aria-valuenow="7"
                              aria-valuemin="0" aria-valuemax="100">
-                            23,4 km
-                        </div>
+    23,4 km
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 73%;" aria-valuenow="73"
                              aria-valuemin="0" aria-valuemax="100">
-                            246,7 km
-                        </div>
+    246,7 km
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R2_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -148,22 +92,22 @@
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 11%;"
                              aria-valuenow="11"
                              aria-valuemin="0" aria-valuemax="100">19,8 km
-                        </div>
+</div>
                         <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 3%;"
                              aria-valuenow="3"
                              aria-valuemin="0" aria-valuemax="100">
-                            4,4 km
-                        </div>
+    4,4 km
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 86%;"
                              aria-valuenow="86"
                              aria-valuemin="0" aria-valuemax="100">
-                            152,8 km
-                        </div>
+    152,8 km
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R3_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -188,20 +132,20 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 24%;" aria-valuenow="24"
                              aria-valuemin="0" aria-valuemax="100">23,1 km
-                        </div>
+</div>
                         <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 10%;"
                              aria-valuenow="10"
                              aria-valuemin="0" aria-valuemax="100">
-                            10,2 km
-                        </div>
+    10,2 km
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 66%;" aria-valuenow="66"
                              aria-valuemin="0" aria-valuemax="100">65,3 km
-                        </div>
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R4_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -226,12 +170,12 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 100%;" aria-valuenow="100"
                              aria-valuemin="0" aria-valuemax="100">1,7 km
-                        </div>
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R5_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -256,15 +200,15 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 26%;" aria-valuenow="26"
                              aria-valuemin="0" aria-valuemax="100">7,7 km
-                        </div>
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 74%;" aria-valuenow="74"
                              aria-valuemin="0" aria-valuemax="100">22,3 km
-                        </div>
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R6_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -289,15 +233,15 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width: 14%;" aria-valuenow="14"
                              aria-valuemin="0" aria-valuemax="100">32,2 km
-                        </div>
+</div>
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 86%;" aria-valuenow="86"
                              aria-valuemin="0" aria-valuemax="100">191,6 km
-                        </div>
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R7_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -322,12 +266,12 @@
                     <div class="progress mb-auto">
                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 100%;" aria-valuenow="100"
                              aria-valuemin="0" aria-valuemax="100">54,9 km
-                        </div>
+</div>
                     </div>
                     <a href="https://sk.wikipedia.org/wiki/R%C3%BDchlostn%C3%A1_cesta_R8_(Slovensko)"
                        class="icon-link gap-1 icon-link-hover stretched-link">
-                        Čítaj viac
-                        <svg class="bi">
+Čítaj viac
+<svg class="bi">
                             <use xlink:href="#chevron-right"></use>
                         </svg>
                     </a>
@@ -343,20 +287,3 @@
             </div>
         </div>
     </div>
-</div>
-
-<footer class="bg-dark text-light p-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h6>Kontakt:</h6>
-                <a href="mailto:info@dopravanaslovensku.sk">info@dopravanaslovensku.sk</a>
-            </div>
-            <div class="col-md-6">
-                <p class="text-right">© 2023 dopravanaslovensku.sk</p>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>

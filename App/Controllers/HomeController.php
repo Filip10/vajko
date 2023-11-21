@@ -39,4 +39,22 @@ class HomeController extends AControllerBase
     {
         return $this->html();
     }
+
+    /**
+     * Example of an action accessible without authorization
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function zeleznice(): Response
+    {
+        return $this->html();
+    }
+
+    /**
+     * Example of an action accessible without authorization
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function dialnice(): Response
+    {
+        return $this->html();
+    }
 }

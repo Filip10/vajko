@@ -33,7 +33,7 @@ body {
     color: white;
  }
 p.obsah, h2.obsah {
-    margin-left: 20px; /* Adjust this value to move it as much as you need */
+    margin-left: 20px;
 }
 h2.obsah {
     margin-top: 10px;

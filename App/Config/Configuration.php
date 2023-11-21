@@ -15,7 +15,7 @@ class Configuration
     /**
      * App name
      */
-    public const APP_NAME = 'Vaííčko MVC FW';
+    public const APP_NAME = 'dopravanaslovensku.sk';
     public const FW_VERSION = '2.2';
 
     /**

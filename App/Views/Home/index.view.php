@@ -1,31 +1,6 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col mt-5">
-            <div class="text-center">
-                <h2>Vaííčko MVC FW</h2>
-                <img src="public/images/vaiicko_logo.png">
-                <p>
-                    Gratulujeme vám, úspešne sa vám podarilo nainštalovať a spustiť framework
-                    <strong>Vaííčko</strong> <?= \App\Config\Configuration::FW_VERSION ?>!<br>
-                    Dúfame, že sa Vám pomocou tohto frameworku vytvoríte nejakú skvelú aplikáciu.<br>
-                </p>
-                <p>
-                    Tento jednoduchý framework bol vytvorený pre lepšie pochopenie architektúry MVC.<br>
-                    Je určený pre študentov predmetu <em>vývoj aplikácií pre internet a intranet</em>, ale nielen im.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col text-center">
-            <h4>Autori</h4>
-            <div>
-                <a href="mailto:Patrik.Hrkut@fri.uniza.sk">doc. Ing. Patrik Hrkút, PhD.</a><br>
-                <a href="mailto:Michal.Duracik@fri.uniza.sk">Ing. Michal Ďuračík, PhD.</a><br>
-                <a href="mailto:Matej.Mesko@fri.uniza.sk">Ing. Matej Meško, PhD.</a><br><br>
-                &copy; 2020-<?= date('Y') ?> Žilinská univerzita v Žiline, Fakulta riadenia a informatiky, Katedra
-                softvérových technológií
-            </div>
-        </div>
-    </div>
-</div>
+<h2 class="obsah">Najaktuálnejšie stavby</h2>
+<br>
+<h2 class="obsah">O projekte</h2>
+<p class="obsah">Cieľom tohto projektu je priniesť nadšencom dopravy aktuálne informácie o dopravných stavbách na Slovensku.</p>
+<p class="obsah">Informácie sú dopĺňané komunitou nadšencov, ktorých sa zaujímajú o aktuálne diane v doprave na Slovensku.</p>
+<p class="obsah">Na stránke ešte pracujeme. Aktuálne pripravené stránky sú diaľnice, rýchlostné cesty, ostatné a login.</p>
