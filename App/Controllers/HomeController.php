@@ -57,4 +57,22 @@ class HomeController extends AControllerBase
     {
         return $this->html();
     }
+
+    /**
+     * Example of an action accessible without authorization
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function rychlostnecesty(): Response
+    {
+        return $this->html();
+    }
+
+    /**
+     * Example of an action accessible without authorization
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function ostatne(): Response
+    {
+        return $this->html();
+    }
 }

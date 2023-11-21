@@ -54,7 +54,7 @@
                     <a class="nav-link" href="<?= $link->url("home.zeleznice") ?>">Železnice</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ostatne.html">Ostatné</a>
+                    <a class="nav-link" href="<?= $link->url("home.ostatne") ?>">Ostatné</a>
                 </li>
             </ul>
 
@@ -76,24 +76,12 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= $link->url("home.index") ?>">
-            <img src="public/images/vaiicko_logo.png" title="<?= \App\Config\Configuration::APP_NAME ?>"
-                 title="<?= \App\Config\Configuration::APP_NAME ?>">
-        </a>
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link->url("home.contact") ?>">Kontakt</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="content container-fluid mt-3" style="flex: 1">
+<div class="container-fluid mt-3" style="flex: 1">
     <div class="web-content">
         <?= $contentHTML ?>
     </div>
 </div>
+
 <footer class="bg-dark text-light p-3">
     <div class="container">
         <div class="row">
