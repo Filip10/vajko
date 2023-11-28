@@ -14,6 +14,7 @@ class KategoriaController extends AControllerBase
     }
     public function add() : Response
     {
+//        ddw
         if ($this->request()->getValue('trasa')) {
 
             $newKategoria = new Kategoria();
