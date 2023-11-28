@@ -35,9 +35,19 @@ class Kategoria extends Model
         return $this->trasa;
     }
 
+    private function getKmSpolu() :float
+    {
+        return $this->getKmVPlane() + $this->getKmVoVystavbe() + $this->getKmDokoncene();
+    }
+
     public function getKmDokoncene(): float
     {
         return $this->kmDokoncene;
+    }
+
+    public function getKmPerDokoncene(): float
+    {
+        return $this->kmDokoncene / $this->getKmSpolu() * 100;
     }
 
     public function getKmVoVystavbe(): float
@@ -45,9 +55,19 @@ class Kategoria extends Model
         return $this->kmVoVystavbe;
     }
 
+    public function getKmPerVoVystavbe(): float
+    {
+        return $this->kmVoVystavbe / $this->getKmSpolu() * 100;
+    }
+
     public function getKmVPlane(): float
     {
         return $this->kmVPlane;
+    }
+
+    public function getKmPerVPlane(): float
+    {
+        return $this->kmVPlane / $this->getKmSpolu() * 100;
     }
 
     public function setNazov(string $nazov): void
