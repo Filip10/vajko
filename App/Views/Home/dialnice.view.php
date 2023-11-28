@@ -1,8 +1,8 @@
 <?php
 
-/** @var Kategoria[] $data */
+/** @var Dialnice[] $data */
 
-use App\Models\Kategoria;
+use App\Models\Dialnice;
 
 ?>
 <div class="row mb-3 p-3">

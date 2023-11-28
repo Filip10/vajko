@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
-use App\Models\Kategoria;
+use App\Models\Dialnice;
 
-class KategoriaController extends AControllerBase
+class DialniceController extends AControllerBase
 {
     public function index(): Response
     {
@@ -14,10 +14,9 @@ class KategoriaController extends AControllerBase
     }
     public function add() : Response
     {
-//        ddw
         if ($this->request()->getValue('trasa')) {
 
-            $newKategoria = new Kategoria();
+            $newKategoria = new Dialnice();
             $newKategoria->setNazov($this->request()->getValue('nazov'));
             $newKategoria->setZaciatokVystavby($this->request()->getValue('zaciatokVystavby'));
             $newKategoria->setKoniecVystavby($this->request()->getValue('koniecVystavby'));

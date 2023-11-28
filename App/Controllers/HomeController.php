@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
-use App\Models\Kategoria;
+use App\Models\Dialnice;
 
 /**
  * Class HomeController
@@ -56,7 +56,7 @@ class HomeController extends AControllerBase
      */
     public function dialnice(): Response
     {
-        $kategorie = Kategoria::getAll();
+        $kategorie = Dialnice::getAll();
         return $this->html($kategorie);
     }
 

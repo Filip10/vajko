@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\Model;
 
-class Kategoria extends Model
+class Dialnice extends Model
 {
     protected string $nazov;
     protected int $zaciatokVystavby;
