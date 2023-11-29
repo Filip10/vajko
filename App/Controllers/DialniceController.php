@@ -14,7 +14,7 @@ class DialniceController extends AControllerBase
     }
     public function add() : Response
     {
-        if ($this->request()->getValue('trasa')) {
+        if ($this->request()->getValue('id')) {
 
             $newKategoria = new Dialnice();
             $newKategoria->setNazov($this->request()->getValue('nazov'));
@@ -28,12 +28,7 @@ class DialniceController extends AControllerBase
             $newKategoria->save();
 
             return $this->redirect("?");
-
         }
-
-
         return $this->html();
     }
-
-
 }

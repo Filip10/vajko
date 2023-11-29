@@ -17,16 +17,15 @@ class PostController extends AControllerBase
         if ($this->request()->getValue('text')) {
 
             $newPost = new Post();
-            $newPost->setPicture($this->request()->getValue('picture'));
-            $newPost->setText($this->request()->getValue('text'));
+            $newPost->setNazov($this->request()->getValue('nazov'));
+            $newPost->setPopis($this->request()->getValue('popis'));
+            $newPost->setDatumPublikovania($this->request()->getValue('datumPublikovania'));
+            $newPost->setZdroj($this->request()->getValue('zdroj'));
 
             $newPost->save();
 
             return $this->redirect("?");
-
         }
-
-
         return $this->html();
     }
 

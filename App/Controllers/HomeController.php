@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Dialnice;
+use App\Models\Post;
 
 /**
  * Class HomeController
@@ -56,8 +57,8 @@ class HomeController extends AControllerBase
      */
     public function dialnice(): Response
     {
-        $kategorie = Dialnice::getAll();
-        return $this->html($kategorie);
+        $dialnice = Dialnice::getAll();
+        return $this->html($dialnice);
     }
 
     /**
@@ -75,6 +76,7 @@ class HomeController extends AControllerBase
      */
     public function ostatne(): Response
     {
-        return $this->html();
+        $posty = Post::getAll();
+        return $this->html($posty);
     }
 }

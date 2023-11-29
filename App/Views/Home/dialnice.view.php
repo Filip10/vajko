@@ -16,10 +16,10 @@ use App\Models\Dialnice;
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0"><?= $dialnica->getNazov() ?></h3>
                     <div class="mb-1 text-body-secondary"><?= $dialnica->getZaciatokVystavby() ?>
-                        - <?php if ($dialnica->getKoniedVystavby() == 0) {
+                        - <?php if ($dialnica->getKoniecVystavby() == 0) {
                             echo "súčastnosť";
                         } else {
-                            echo $dialnica->getKoniedVystavby();
+                            echo $dialnica->getKoniecVystavby();
                         } ?></div>
                     <p class="card-text mb-2"><?= $dialnica->getTrasa() ?></p>
                     <div class="progress mb-auto" role="progressbar" aria-valuenow="0" aria-valuemin="0"

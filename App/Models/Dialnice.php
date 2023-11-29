@@ -25,7 +25,7 @@ class Dialnice extends Model
         return $this->zaciatokVystavby;
     }
 
-    public function getKoniedVystavby(): int
+    public function getKoniecVystavby(): int
     {
         return $this->koniecVystavby;
     }

@@ -1,62 +1,77 @@
 <?php
 
+namespace App\Models;
 
 use App\Core\Model;
+use DateTime;
 
 class Post extends Model
 {
     protected int $id;
-    protected string $text;
-    protected string $picture;
+    protected string $nazov;
+    protected string $popis;
+    protected string $datumPublikovania;
+    protected string $zdroj;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
     public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    /**
-     * @return string
-     */
-    public function getText(): string
+    public function getNazov(): string
     {
-        return $this->text;
+        return $this->nazov;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText(string $text): void
+    public function setNazov(string $nazov): void
     {
-        $this->text = $text;
+        $this->nazov = $nazov;
     }
 
-    /**
-     * @return string
-     */
-    public function getPicture(): string
+    public function getPopis(): string
     {
-        return $this->picture;
+        return $this->popis;
     }
 
-    /**
-     * @param string $picture
-     */
-    public function setPicture(string $picture): void
+    public function setPopis(string $popis): void
     {
-        $this->picture = $picture;
+        $this->popis = $popis;
     }
 
+    public function getDatumPublikovania(): string
+    {
+        $inputString = $this->datumPublikovania;
+        $dateTime = new DateTime($inputString);
+        $outputString = $dateTime->format('d.m.Y');
+        return $outputString;
+    }
 
+    public function setDatumPublikovania(string $datumPublikovania): void
+    {
 
+        $this->datumPublikovania = $datumPublikovania;
+    }
+
+    public function getZdroj(): string
+    {
+        return $this->zdroj;
+    }
+
+    public function getZdrojSkrateny(): string
+    {
+        $parsedUrl = parse_url($this->zdroj);
+        $hostParts = explode('.', $parsedUrl['host']);
+        $substring = $hostParts[count($hostParts) - 2];
+        return $substring;
+    }
+
+    public function setZdroj(string $zdroj): void
+    {
+        $this->zdroj = $zdroj;
+    }
 }
