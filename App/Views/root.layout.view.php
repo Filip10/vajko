@@ -68,7 +68,7 @@
             <?php } else { ?>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>" aria-expanded="false"><i class="bi bi-person-circle"></i>Prihlásiť sa</a>
+                        <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>" aria-expanded="false"><i class="bi bi-person-circle"></i> Prihlásiť sa</a>
                     </li>
                 </ul>
             <?php } ?>
