@@ -14,6 +14,9 @@ use App\Models\Post;
 <p>Mestská hromadná doprava.</p>
 <p>Cyklochodníky</p>
 
+<?php if ($auth->isLogged() && $auth->getLoggedUserName()) { ?>
+    <a href="<?= $link->url("admin.add") ?>" class="btn btn-primary">Pridaj príspevok</a>
+<?php } ?>
 <div class="row mb-3 p-3">
     <?php
     foreach ($data as $post) {

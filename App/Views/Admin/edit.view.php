@@ -15,8 +15,7 @@ if (!is_null(@$data['errors'])): ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
-<script src="../../../public/js/date-check.js"></script>
-<form method="post" action="<?= $link->url('admin.save') ?>" enctype="multipart/form-data">
+<form id="myForm"  method="post" action="<?= $link->url('admin.save') ?>" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?= @$data['post']?->getId() ?>">
 
@@ -42,6 +41,7 @@ if (!is_null(@$data['errors'])): ?>
         <input type="date" class="form-control" name="date" id="post-date"
                value="<?= $formattedDate ?>">
     </div>
+    <div id="date-validation-message" style="color: red;"></div>
 
     <!-- url (Zdroj) -->
     <label for="post-url" class="form-label">Adresa</label>
@@ -51,3 +51,4 @@ if (!is_null(@$data['errors'])): ?>
 
     <button type="submit" class="btn btn-primary">Uložiť</button>
 </form>
+<script src="../../../public/js/date-check.js"></script>
