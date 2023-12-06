@@ -15,7 +15,7 @@ if (!is_null(@$data['errors'])): ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
-<form method="post" action="<?= $link->url('post.save') ?>" enctype="multipart/form-data">
+<form method="post" action="<?= $link->url('admin.save') ?>" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?= @$data['post']?->getId() ?>">
 
@@ -32,10 +32,14 @@ if (!is_null(@$data['errors'])): ?>
     </div>
 
     <!-- date (Datum Publikovania) -->
+    <?php
+               $originalDateString = @$data['post']?->getDatumPublikovania();
+               $formattedDate = date('Y-m-d', strtotime($originalDateString));
+               ?>
     <label for="post-date" class="form-label">Dátum publikovania</label>
     <div class="input-group has-validation mb-3 ">
         <input type="date" class="form-control" name="date" id="post-date"
-               value="<?= @$data['post']?->getDatumPublikovania() ?>">
+               value="<?= $formattedDate ?>">
     </div>
 
     <!-- url (Zdroj) -->

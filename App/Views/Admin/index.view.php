@@ -10,7 +10,7 @@
             <div>
                 Vitaj, <strong><?= $auth->getLoggedUserName() ?></strong>!<br><br>
                 Táto časť aplikácie je prístupná len po prihlásení.<br>
-                <a class="nav-link" href="<?= $link->url("admin.pridajPrispevok") ?>">Pridaj príspevok tu</a>
+                <a class="nav-link" href="<?= $link->url("admin.add") ?>">Pridaj príspevok tu</a>
             </div>
         </div>
     </div>

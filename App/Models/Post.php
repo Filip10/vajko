@@ -64,8 +64,8 @@ class Post extends Model
 
     public function setDatumPublikovania(string $datumPublikovania): void
     {
-
-        $this->datumPublikovania = $datumPublikovania;
+        $formattedDate = date('Y-m-d', strtotime($datumPublikovania));
+        $this->datumPublikovania = $formattedDate;
     }
 
     public function getZdroj(): string

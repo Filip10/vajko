@@ -23,7 +23,7 @@ class PostController extends AControllerBase
         if ($id && ($action == "save" || $action == "delete")) {
 
             $post = Post::getOne($id);
-            return $this->app->getAuth()->getLoggedUserName() == $post->getAuthor();
+            return $this->app->getAuth()->getLoggedUserName() == $post->getAutor();
 
 
         }

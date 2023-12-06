@@ -8,6 +8,7 @@ use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Helpers\FileStorage;
 use App\Models\Post;
+use DateTime;
 
 /**
  * Class HomeController
@@ -35,15 +36,6 @@ class AdminController extends AControllerBase
         return $this->html();
     }
 
-    /**
-     * Example of an action (authorization needed)
-     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
-     */
-    public function pridajPrispevok(): Response
-    {
-        return $this->html();
-    }
-
     public function edit(): Response
     {
         $id = (int) $this->request()->getValue('id');
@@ -63,34 +55,43 @@ class AdminController extends AControllerBase
     public function save()
     {
         $id = (int)$this->request()->getValue('id');
-        $oldFileName = "";
 
-        if ($id > 0) {
-            $post = Post::getOne($id);
-            $oldFileName = $post->getPicture();
-        } else {
-            $post = new Post();
-            $post->setAuthor($this->app->getAuth()->getLoggedUserName());
-        }
-        $post->setText($this->request()->getValue('text'));
-        $post->setPicture($this->request()->getFiles()['picture']['name']);
 
-        $formErrors = $this->formErrors();
-        if (count($formErrors) > 0) {
-            return $this->html(
-                [
-                    'post' => $post,
-                    'errors' => $formErrors
-                ], 'add'
-            );
-        } else {
-            if ($oldFileName != "") {
-                FileStorage::deleteFile($oldFileName);
-            }
-            $newFileName = FileStorage::saveFile($this->request()->getFiles()['picture']);
-            $post->setPicture($newFileName);
-            $post->save();
-            return new RedirectResponse($this->url("home.index"));
-        }
+        //$post = new Post(); // toto je pre nový post
+        $post = Post::getOne($id); //toto je pre upravenie postu
+        $post->setAutor($this->app->getAuth()->getLoggedUserName());
+        $post->setNazov($this->request()->getValue('nazov'));
+        $post->setPopis($this->request()->getValue('popis'));
+        $inputString = $this->request()->getValue('datumPublikovania');
+        $dateTime = new DateTime($inputString);
+        $outputString = $dateTime->format('d.m.Y');
+        $post->setDatumPublikovania($outputString);
+        $urlInput = (string)($this->request()->getValue('url'));
+        $post->setZdroj($urlInput);
+
+        $post->save();
+        return new RedirectResponse($this->url("home.ostatne"));
+    }
+
+
+    public function add(): Response
+    {
+        return $this->html();
+    }
+    public function create()
+    {
+        $post = new Post(); // toto je pre nový post
+        $post->setAutor($this->app->getAuth()->getLoggedUserName());
+        $post->setNazov($this->request()->getValue('nazov'));
+        $post->setPopis($this->request()->getValue('popis'));
+        $inputString = $this->request()->getValue('datumPublikovania');
+        $dateTime = new DateTime($inputString);
+        $outputString = $dateTime->format('d.m.Y');
+        $post->setDatumPublikovania($outputString);
+        $urlInput = (string)($this->request()->getValue('url'));
+        $post->setZdroj($urlInput);
+
+        $post->save();
+        return new RedirectResponse($this->url("home.ostatne"));
     }
 }
