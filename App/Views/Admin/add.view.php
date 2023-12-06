@@ -6,7 +6,7 @@
 use App\Models\Post;
 
 ?>
-<form method="post" action="<?= $link->url('admin.create') ?>" enctype="multipart/form-data">
+<form id="myForm" method="post" action="<?= $link->url('admin.create') ?>" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="">
 
@@ -24,9 +24,10 @@ use App\Models\Post;
 
     <!-- date (Datum Publikovania) -->
     <label for="post-date" class="form-label">Dátum publikovania</label>
-    <div class="input-group has-validation mb-3 ">
+    <div class="input-group has-validation mb-3">
         <input type="date" class="form-control" name="date" id="post-date" value="">
     </div>
+    <div id="date-validation-message" style="color: red;"></div>
 
     <!-- url (Zdroj) -->
     <label for="post-url" class="form-label">Adresa</label>
@@ -36,3 +37,4 @@ use App\Models\Post;
 
     <button type="submit" class="btn btn-primary">Uložiť</button>
 </form>
+<script src="../../../public/js/date-check.js"></script>

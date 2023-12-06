@@ -15,6 +15,7 @@ if (!is_null(@$data['errors'])): ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
+<script src="../../../public/js/date-check.js"></script>
 <form method="post" action="<?= $link->url('admin.save') ?>" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?= @$data['post']?->getId() ?>">
