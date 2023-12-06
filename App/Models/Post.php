@@ -12,6 +12,17 @@ class Post extends Model
     protected string $popis;
     protected string $datumPublikovania;
     protected string $zdroj;
+    protected string $autor;
+
+    public function getAutor(): string
+    {
+        return $this->autor;
+    }
+
+    public function setAutor(string $autor): void
+    {
+        $this->autor = $autor;
+    }
 
     public function getId(): int
     {

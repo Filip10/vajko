@@ -1,8 +1,9 @@
 <?php
 
 /** @var Post[] $data */
-
+/** @var \App\Models\Post $post */
 /** @var \App\Core\LinkGenerator $link */
+/** @var \App\Core\IAuthenticator $auth */
 
 use App\Models\Post;
 
@@ -54,6 +55,9 @@ use App\Models\Post;
                     </svg>
                 </div>
             </div>
+            <?php if ($auth->isLogged() && $auth->getLoggedUserName()) { ?>
+                <a href="<?= $link->url('admin.edit', ['id' => $post->getId()]) ?>" class="btn btn-primary">Upraviť</a>
+            <?php } ?>
         </div>
         <?php
     }
