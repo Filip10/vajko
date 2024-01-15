@@ -62,10 +62,11 @@ class Post extends Model
         return $outputString;
     }
 
-    public function setDatumPublikovania(string $datumPublikovania): void
+    public function setDatumPublikovania(string $datumPublikovaniaa): void
     {
-        $formattedDate = date('Y-m-d', strtotime($datumPublikovania));
-        $this->datumPublikovania = $formattedDate;
+        $dateTime = new DateTime($datumPublikovaniaa);
+        $outputString = $dateTime->format('Y-m-d');
+        $this->datumPublikovania = $outputString;
     }
 
     public function getZdroj(): string
