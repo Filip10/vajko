@@ -116,4 +116,16 @@ class Post extends Model
             $like->save();
         }
     }
+
+    public function isLiker($userName)
+    {
+        if (empty($this->id)) {
+            throw new \Exception("Post must be stored or loaded to check the liker.");
+        }
+
+        $likes = Like::getAll("post_id = ? AND liker LIKE ?", [$this->id, $userName]);
+
+        return count($likes) > 0;
+    }
+
 }

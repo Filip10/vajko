@@ -21,8 +21,8 @@ use App\Models\Post;
     <?php
     foreach ($data as $post) {
         ?>
-        <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-md-6 mb-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-2"><?= $post->getNazov() ?></h3>
                     <div class="mb-1 text-body-secondary"><?= $post->getDatumPublikovania() ?></div>
@@ -41,7 +41,7 @@ use App\Models\Post;
                         </div>
                     </div>
                     <a href="<?= $post->getZdroj() ?>?ref=dopravanaslovensku.sk"
-                       class="icon-link gap-1 icon-link-hover stretched-link" style="margin-bottom: 0.8em">
+                       class="icon-link gap-1 icon-link-hover" style="margin-bottom: 0.8em">
                         Čítať viac
                         <svg class="bi">
                             <use xlink:href="#chevron-right"></use>
@@ -58,8 +58,12 @@ use App\Models\Post;
                     </svg>
                 </div>
             </div>
-            <a href="<?= $link->url('like.toggle', ['id' => $post->getId()]) ?>" class="btn btn-primary btn-sm"><?= $post->getLikeCount() ?> <i class="bi bi-hand-thumbs-up"></i></a>
-            <?php if ($auth->isLogged() && $auth->getLoggedUserName()) { ?>
+            <a href="<?= $link->url('like.toggle', ['id' => $post->getId()]) ?>" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
+                <?php if ($auth->isLogged() && $post->isLiker($auth->getLoggedUserName())) { ?>
+                    vrátane vás
+                <?php } ?>
+                to označili ako užitočné</a>
+            <?php if ($auth->isLogged() && $auth->getLoggedUserName() == "admin") { ?>
                 <a href="<?= $link->url('admin.edit', ['id' => $post->getId()]) ?>" class="btn btn-primary">Upraviť</a>
                 <a href="<?= $link->url('admin.delete', ['id' => $post->getId()]) ?>" class="btn btn-danger">Vymazať</a>
             <?php } ?>
