@@ -86,4 +86,34 @@ class Post extends Model
     {
         $this->zdroj = $zdroj;
     }
+
+    public function getLikeCount()
+    {
+        // get all likes of this post
+        $likesCount = Like::getAll("post_id = ?", [$this->id]);
+        // count them
+        return count($likesCount);
+    }
+
+    public function likeToggle($userName)
+    {
+        // only for stored
+        if (empty($this->id)) {
+            throw new \Exception("Post must be stored or loaded to toggle like.");
+        }
+        // get all likes from this user for this post (there is always only one or none)
+        $likes = Like::getAll("post_id = ? AND liker like ?", [$this->id, $userName]);
+        if (count($likes) > 0) {
+            // remove likes if there are any
+            foreach ($likes as $like) {
+                $like->delete();
+            }
+        } else {
+            // if there are not, create one
+            $like = new Like();
+            $like->setPostId($this->id);
+            $like->setLiker($userName);
+            $like->save();
+        }
+    }
 }

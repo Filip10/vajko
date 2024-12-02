@@ -91,4 +91,17 @@ class AdminController extends AControllerBase
         $post->save();
         return new RedirectResponse($this->url("home.ostatne"));
     }
+    public function delete()
+    {
+        $id = (int)$this->request()->getValue('id');
+        $post = Post::getOne($id);
+
+        if (is_null($post)) {
+            throw new HTTPException(404);
+        } else {
+            //FileStorage::deleteFile($post->getPicture());
+            $post->delete();
+            return new RedirectResponse($this->url("home.index"));
+        }
+    }
 }

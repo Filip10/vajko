@@ -58,8 +58,10 @@ use App\Models\Post;
                     </svg>
                 </div>
             </div>
+            <a href="<?= $link->url('like.toggle', ['id' => $post->getId()]) ?>" class="btn btn-primary btn-sm"><?= $post->getLikeCount() ?> <i class="bi bi-hand-thumbs-up"></i></a>
             <?php if ($auth->isLogged() && $auth->getLoggedUserName()) { ?>
                 <a href="<?= $link->url('admin.edit', ['id' => $post->getId()]) ?>" class="btn btn-primary">Upraviť</a>
+                <a href="<?= $link->url('admin.delete', ['id' => $post->getId()]) ?>" class="btn btn-danger">Vymazať</a>
             <?php } ?>
         </div>
         <?php

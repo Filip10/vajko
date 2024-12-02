@@ -82,12 +82,12 @@ class PostController extends AControllerBase
         $id = (int)$this->request()->getValue('id');
         $post = Post::getOne($id);
 
-//        if (is_null($post)) {
-//            throw new HTTPException(404);
-//        } else {
-//            FileStorage::deleteFile($post->getPicture());
-//            $post->delete();
-//            return new RedirectResponse($this->url("home.index"));
-//        }
+        if (is_null($post)) {
+            throw new HTTPException(404);
+        } else {
+            //FileStorage::deleteFile($post->getPicture());
+            $post->delete();
+            return new RedirectResponse($this->url("home.index"));
+        }
     }
 }
