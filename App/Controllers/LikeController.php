@@ -27,7 +27,7 @@ class LikeController extends AControllerBase
         // toggle like
         $postToLike->likeToggle($this->app->getAuth()->getLoggedUserName());
         // redirect to home
-        return new RedirectResponse($this->url('home.index'));
+        return new RedirectResponse($this->url('home.ostatne'));
     }
 
 }

@@ -46,19 +46,16 @@ class PostController extends AControllerBase
 
     public function add(): Response
     {
-        if ($this->request()->getValue('text')) {
+        $post = new Post(); // toto je pre nový post
+        $post->setAutor($this->app->getAuth()->getLoggedUserName());
+        $post->setNazov($this->request()->getValue('nazov'));
+        $post->setPopis($this->request()->getValue('popis'));
+        $post->setDatumPublikovania($this->request()->getValue('date'));
+        $urlInput = (string)($this->request()->getValue('url'));
+        $post->setZdroj($urlInput);
 
-            $newPost = new Post();
-            $newPost->setNazov($this->request()->getValue('nazov'));
-            $newPost->setPopis($this->request()->getValue('popis'));
-            $newPost->setDatumPublikovania($this->request()->getValue('datumPublikovania'));
-            $newPost->setZdroj($this->request()->getValue('zdroj'));
-
-            $newPost->save();
-
-            return $this->redirect("?");
-        }
-        return $this->html();
+        $post->save();
+        return new RedirectResponse($this->url("home.ostatne"));
     }
 
     public function edit(): Response

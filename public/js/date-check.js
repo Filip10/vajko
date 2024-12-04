@@ -1,19 +1,28 @@
 document.getElementById('myForm').addEventListener('submit', function(event) {
-    // Validate the date before submitting the form
-    if (!validateDate() || !validateText() || !validateNazov() || !validateUrl()) {
-        // If the date is not valid, prevent the form submission
+    // Track the overall form validity
+    let isFormValid = true;
+
+    // Run each validation function and update the overall validity
+    if (!validateDate()) isFormValid = false;
+    if (!validateText()) isFormValid = false;
+    if (!validateNazov()) isFormValid = false;
+    if (!validateUrl()) isFormValid = false;
+
+    // If any validation fails, prevent form submission
+    if (!isFormValid) {
         event.preventDefault();
-        console.log('Form submission prevented due to an invalid date');
+        console.log('Form submission prevented due to invalid form fields');
     }
 });
+
 document.getElementById('post-date').addEventListener('blur', function() {
     validateDate();
 });
 
 function validateDate() {
-    var inputDate = document.getElementById('post-date').value;
-    var currentDate = new Date().toISOString().split('T')[0];
-    var validationMessage = document.getElementById('date-validation-message');
+    const inputDate = document.getElementById('post-date').value;
+    const currentDate = new Date().toISOString().split('T')[0];
+    const validationMessage = document.getElementById('date-validation-message');
 
     if (inputDate < currentDate) {
         validationMessage.textContent = '';
@@ -27,40 +36,49 @@ function validateDate() {
 }
 
 function validateText() {
-    var inputText = document.getElementById('post-popis').value;
-    //var validationMessage = document.getElementById('text-validation-message');
+    const inputText = document.getElementById('post-popis').value;
+    const validationMessage = document.getElementById('text-validation-message');
 
     if (inputText.trim() !== '') {
-        //validationMessage.style.display = 'none'; // Hide any previous error message
+        validationMessage.style.display = 'none'; // Hide any previous error message
         console.log('Valid text');
         return true;
     } else {
-        //validationMessage.style.display = 'block'; // Show error message
+        validationMessage.textContent = 'Nezabudni zadať text!';
+        validationMessage.style.display = 'block'; // Show error message
         console.log('Invalid text');
         return false;
     }
 }
 
 function validateNazov() {
-    var inputText = document.getElementById('post-nazov').value;
+    const inputText = document.getElementById('post-nazov').value;
+    const validationMessage = document.getElementById('nazov-validation-message');
 
     if (inputText.trim() !== '') {
-        console.log('Valid nazov');
+        validationMessage.style.display = 'none';
+        console.log('Valid name');
         return true;
     } else {
-        console.log('Invalid nazov');
+        validationMessage.textContent = 'Nezabudni zadať názov!';
+        validationMessage.style.display = 'block';
+        console.log('Invalid name');
         return false;
     }
 }
 
 function validateUrl() {
-    var inputText = document.getElementById('post-url').value;
+    const inputText = document.getElementById('post-url').value;
+    const validationMessage = document.getElementById('url-validation-message');
 
     if (inputText.trim() !== '') {
-        console.log('Valid url');
+        validationMessage.style.display = 'none';
+        console.log('Valid URL');
         return true;
     } else {
-        console.log('Invalid url');
+        validationMessage.textContent = 'Nezabudni zadať URL!';
+        validationMessage.style.display = 'block';
+        console.log('Invalid URL');
         return false;
     }
 }
