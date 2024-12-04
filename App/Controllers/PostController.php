@@ -48,10 +48,20 @@ class PostController extends AControllerBase
     {
         $post = new Post(); // toto je pre nový post
         $post->setAutor($this->app->getAuth()->getLoggedUserName());
-        $post->setNazov($this->request()->getValue('nazov'));
-        $post->setPopis($this->request()->getValue('popis'));
-        $post->setDatumPublikovania($this->request()->getValue('date'));
+
+        $nazov = $this->request()->getValue('nazov');
+        $popis = $this->request()->getValue('popis');
+        $date = $this->request()->getValue('date');
         $urlInput = (string)($this->request()->getValue('url'));
+
+        if (empty($nazov) || empty($popis) || empty($date) || empty($urlInput)) {
+            // Handle the error, e.g., return an error response or show a message
+            throw new Exception("Všetky polia je potrebné vyplniť!");
+        }
+
+        $post->setNazov($nazov);
+        $post->setPopis($popis);
+        $post->setDatumPublikovania($date);
         $post->setZdroj($urlInput);
 
         $post->save();
