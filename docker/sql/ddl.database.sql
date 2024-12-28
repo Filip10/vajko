@@ -34,7 +34,7 @@ CREATE TABLE prepojenie_cesty_posts (
                                         id_posts INT NOT NULL,
                                         id_cesty INT NOT NULL,
                                         CONSTRAINT prepojenie_cesty_posts_cesty_id_fk
-                                            FOREIGN KEY (id_cesty) REFERENCES cesty (id),
+                                            FOREIGN KEY (id_cesty) REFERENCES cestys (id),
                                         CONSTRAINT prepojenie_cesty_posts_posts_id_fk
                                             FOREIGN KEY (id_posts) REFERENCES posts (id)
 );
@@ -47,7 +47,7 @@ CREATE TABLE users (
 );
 
 -- Insert data
-INSERT INTO cesty (cesta) VALUES
+INSERT INTO cestys (cesta) VALUES
                               ('I/66'),
                               ('II/540'),
                               ('I/16'),

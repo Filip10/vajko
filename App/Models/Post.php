@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Core\DB\Connection;
 use App\Core\Model;
 use DateTime;
+use PDO;
 
 class Post extends Model
 {
@@ -128,4 +130,27 @@ class Post extends Model
         return count($likes) > 0;
     }
 
+
+    public function getCestaByPostId($postId) {
+        // Prepare the SQL query
+        $con = Connection::connect();
+        $stmt = $con->prepare("
+            SELECT cestys.cesta
+            FROM prepojenie_cesty_posts
+            INNER JOIN cestys ON prepojenie_cesty_posts.id_cesty = cestys.id
+            WHERE prepojenie_cesty_posts.id_posts = $postId;
+    ");
+        //$stmt->bind_param("i", $postId); // Bind the post ID
+        $stmt->execute(); // Execute the query
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Fetch the results
+        //$cestas = [];
+        //foreach ($result as $row) {
+        //    $cestas[] = $row['cesta'];
+        //}
+
+        //$stmt->close();
+        return $result;
+    }
 }

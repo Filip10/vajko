@@ -29,7 +29,18 @@ use App\Models\Post;
                     <p class="card-text mb-3"><?= $post->getPopis() ?></p>
                     <div class="row mb-2">
                         <div class="col">
-                            <button type="button" class="btn btn-outline-warning">I/66</button>
+                            <?php
+                            // Assume $db is your database connection
+                            //$postId = 2; // Example post ID
+                            $cestas = $post->getCestaByPostId($post->getId());
+
+                            // Output the cesta texts
+                            foreach ($cestas as $cesta) {
+                            ?>
+                            <button type="button" class="btn btn-outline-warning"><?php $cesta ?> </button>
+                                <?php
+                            }
+                            ?>
 
                             <button type="button" class="btn btn-outline-warning">I/66</button>
                             <button type="button" class="btn btn-outline-info">II/540</button>
