@@ -33,12 +33,11 @@ use App\Models\Post;
                             <?php
                             $cestas = $post->getCestaByPostId($post->getId());
 
-                            $i = 0;
                             foreach ($cestas as $cesta) {
+                                //var_dump($cesta);
                                 ?>
-                                <button type="button" class="btn btn-outline-warning"><?php echo $cesta[$i]; ?></button>
+                                <button type="button" class="btn btn-outline-warning"><?php echo $cesta['cesta']; ?></button>
                                 <?php
-                                $i++;
                             }
                             ?>
 
