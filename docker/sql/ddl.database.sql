@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS vaiicko_db CHARACTER SET utf8mb4 COLLATE utf8mb4_u
 USE vaiicko_db;
 
 -- Create tables
-CREATE TABLE cesty (
+CREATE TABLE cestys (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        cesta VARCHAR(255) NOT NULL
 );
