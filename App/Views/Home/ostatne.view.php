@@ -2,6 +2,7 @@
 
 /** @var Post[] $data */
 /** @var \App\Models\Post $post */
+/** @var \App\Models\Cesty $cesty */
 /** @var \App\Core\LinkGenerator $link */
 /** @var \App\Core\IAuthenticator $auth */
 
@@ -30,15 +31,14 @@ use App\Models\Post;
                     <div class="row mb-2">
                         <div class="col">
                             <?php
-                            // Assume $db is your database connection
-                            //$postId = 2; // Example post ID
                             $cestas = $post->getCestaByPostId($post->getId());
 
-                            // Output the cesta texts
+                            $i = 0;
                             foreach ($cestas as $cesta) {
-                            ?>
-                            <button type="button" class="btn btn-outline-warning"><?php $cesta ?> </button>
+                                ?>
+                                <button type="button" class="btn btn-outline-warning"><?php echo $cesta[$i]; ?></button>
                                 <?php
+                                $i++;
                             }
                             ?>
 

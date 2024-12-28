@@ -132,7 +132,6 @@ class Post extends Model
 
 
     public function getCestaByPostId($postId) {
-        // Prepare the SQL query
         $con = Connection::connect();
         $stmt = $con->prepare("
             SELECT cestys.cesta
@@ -140,17 +139,8 @@ class Post extends Model
             INNER JOIN cestys ON prepojenie_cesty_posts.id_cesty = cestys.id
             WHERE prepojenie_cesty_posts.id_posts = $postId;
     ");
-        //$stmt->bind_param("i", $postId); // Bind the post ID
-        $stmt->execute(); // Execute the query
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Fetch the results
-        //$cestas = [];
-        //foreach ($result as $row) {
-        //    $cestas[] = $row['cesta'];
-        //}
-
-        //$stmt->close();
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 }
