@@ -37,6 +37,11 @@ use App\Models\Post;
         <div id="date-validation-message" style="color: red;"></div>
     </div>
 
+    <label for="post-cesty">Select Roads:</label>
+    <select id="sendJson" name="cesty[]" multiple="multiple" style="width: 100%" required>
+        <div id="result"></div>
+    </select>
+
     <!-- url (Zdroj) -->
     <label for="post-url" class="form-label">Adresa</label>
     <div class="mb-3">
@@ -49,3 +54,4 @@ use App\Models\Post;
     <button type="submit" class="btn btn-primary">Uložiť</button>
 </form>
 <script src="../../../public/js/date-check.js?v=<?= time() ?>"></script>
+<script src="../../../public/js/add-categories.js?v=<?= time() ?>"></script>
