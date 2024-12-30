@@ -1,9 +1,10 @@
 <?php
 
 /** @var \App\Core\LinkGenerator $link */
-/** @var Array $data */
+/** @var Cesty[] $data */
 
 use App\Models\Post;
+use App\Models\Cesty;
 
 ?>
 <form id="myForm" method="post" action="<?= $link->url('post.add') ?>" enctype="multipart/form-data">
@@ -37,9 +38,15 @@ use App\Models\Post;
         <div id="date-validation-message" style="color: red;"></div>
     </div>
 
-    <label for="post-cesty">Select Roads:</label>
-    <select id="sendJson" name="cesty[]" multiple="multiple" style="width: 100%" required>
-        <div id="result"></div>
+    <label for="post-cesty">Cesty:</label>
+    <select id="sendJsonNope" name="cesty[]" multiple="multiple" style="width: 100%">
+        <?php
+        foreach ($data as $cesta) {
+        ?>
+            <option id="result"><?= $cesta->getCesta() ?></option>
+            <?php
+        }
+        ?>
     </select>
 
     <!-- url (Zdroj) -->

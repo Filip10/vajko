@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Dialnice;
+use App\Models\Message;
 use App\Models\Post;
 
 /**
@@ -78,5 +79,23 @@ class HomeController extends AControllerBase
     {
         $posty = Post::getAll();
         return $this->html($posty);
+    }
+
+    public function showJson(): Response
+    {
+        $message = new Message();
+        $message->setMessage('Ahoj');
+        $message->setAuthor('Patrik');
+        $message->setRecipient('Peter');
+
+        return $this->json($message);
+
+    }
+
+    public function receiveJson(): Response
+    {
+        $data = $this->request()->getRawBodyJSON();
+
+        return $this->json($data);
     }
 }

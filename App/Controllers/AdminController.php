@@ -7,6 +7,7 @@ use App\Core\HTTPException;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Helpers\FileStorage;
+use App\Models\Cesty;
 use App\Models\Post;
 use DateTime;
 
@@ -76,7 +77,8 @@ class AdminController extends AControllerBase
 
     public function add(): Response
     {
-        return $this->html();
+        $cesty = Cesty::getAll();
+        return $this->html($cesty);
     }
     public function create()
     {

@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS vaiicko_db CHARACTER SET utf8mb4 COLLATE utf8mb4_u
 USE vaiicko_db;
 
 -- Create tables
-CREATE TABLE cestys (
+CREATE TABLE cesties (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        cesta VARCHAR(255) NOT NULL
 );
@@ -34,7 +34,7 @@ CREATE TABLE prepojenie_cesty_posts (
                                         id_posts INT NOT NULL,
                                         id_cesty INT NOT NULL,
                                         CONSTRAINT prepojenie_cesty_posts_cesty_id_fk
-                                            FOREIGN KEY (id_cesty) REFERENCES cestys (id),
+                                            FOREIGN KEY (id_cesty) REFERENCES cesties (id),
                                         CONSTRAINT prepojenie_cesty_posts_posts_id_fk
                                             FOREIGN KEY (id_posts) REFERENCES posts (id)
 );
@@ -47,7 +47,7 @@ CREATE TABLE users (
 );
 
 -- Insert data
-INSERT INTO cestys (cesta) VALUES
+INSERT INTO cesties (cesta) VALUES
                               ('I/66'),
                               ('II/540'),
                               ('I/16'),
