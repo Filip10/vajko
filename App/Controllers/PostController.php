@@ -3,11 +3,14 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\DB\Connection;
 use App\Core\HTTPException;
 use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Helpers\FileStorage;
 use App\Models\Post;
+use App\Models\Prepojenie_cesty_post;
+use PDO;
 
 class PostController extends AControllerBase
 {
@@ -65,6 +68,21 @@ class PostController extends AControllerBase
         $post->setZdroj($urlInput);
 
         $post->save();
+        echo '<script>';
+        echo 'console.log("Sem sa dostanem!");';
+        echo '</script>';
+        $idPost = $post->getId();
+
+        $vybraneCesty = $this->request()->getValue('cesty');
+
+
+        if (!empty($vybraneCesty)) {
+            foreach ($vybraneCesty as $option) {
+                $prepojenie = new Prepojenie_cesty_postController();
+                $prepojenie->save($idPost ,$post->setCestaPost($option));
+            }
+        }
+
         return new RedirectResponse($this->url("home.ostatne"));
     }
 

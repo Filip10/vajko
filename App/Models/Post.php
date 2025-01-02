@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Core\DB\Connection;
 use App\Core\Model;
+use App\Models\Cesty;
+use App\Models\Prepojenie_cesty_post;
 use DateTime;
 use PDO;
 
@@ -134,13 +136,23 @@ class Post extends Model
     public function getCestaByPostId($postId) {
         $con = Connection::connect();
         $stmt = $con->prepare("
-            SELECT cestys.cesta
+            SELECT cesties.cesta
             FROM prepojenie_cesty_posts
-            INNER JOIN cestys ON prepojenie_cesty_posts.id_cesty = cestys.id
+            INNER JOIN cesties ON prepojenie_cesty_posts.id_cesty = cesties.id
             WHERE prepojenie_cesty_posts.id_posts = $postId;
     ");
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+    public function setCestaPost($cestyId) {
+        $cesta = Cesty::getAll('`cesta` = ?', [$cestyId]);
+        if (!empty($cesta)) {
+            return $cesta[0]->getId();
+        }
+        else {
+            return null;
+        }
     }
 }
