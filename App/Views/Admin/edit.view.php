@@ -48,12 +48,12 @@ if (!is_null(@$data['errors'])): ?>
         <?php
         $selectedValues = @$data['post']?->getCestaByPostId(@$data['post']?->getId());
         foreach ( @$data['post']?->getAllCesties() as $cesta) {
-            // <?php $cesta->getCesta()
+            // $cesta->getCesta() //error 500 - Call to a member function getCesta() on array
             // $cesta['cesta']
-            // var_dump($cesta);
+            // var_dump($cesta); //array(1) {["cesta"]=>string(6) "II/540"}
             $isSelected = in_array($cesta, $selectedValues) ? 'selected' : '';
             ?>
-            <option id="result" <?= $isSelected ?>><?php var_dump($cesta); ?></option>
+            <option id="result" <?= $isSelected ?>><?php echo $cesta['cesta'] ?></option>
             <?php
         }
         ?>
