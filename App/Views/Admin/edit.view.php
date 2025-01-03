@@ -43,6 +43,22 @@ if (!is_null(@$data['errors'])): ?>
     </div>
     <div id="date-validation-message" style="color: red;"></div>
 
+    <label for="post-cesty">Cesty:</label>
+    <select id="sendJsonNope" name="cesty[]" multiple="multiple" style="width: 100%">
+        <?php
+        $selectedValues = @$data['post']?->getCestaByPostId(@$data['post']?->getId());
+        foreach ( @$data['post']?->getAllCesties() as $cesta) {
+            // <?php $cesta->getCesta()
+            // $cesta['cesta']
+            // var_dump($cesta);
+            $isSelected = in_array($cesta, $selectedValues) ? 'selected' : '';
+            ?>
+            <option id="result" <?= $isSelected ?>><?php var_dump($cesta); ?></option>
+            <?php
+        }
+        ?>
+    </select>
+
     <!-- url (Zdroj) -->
     <label for="post-url" class="form-label">Adresa</label>
     <div class="input-group has-validation mb-3 ">

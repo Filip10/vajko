@@ -146,6 +146,17 @@ class Post extends Model
         return $result;
     }
 
+    public function getAllCesties() {
+        $con = Connection::connect();
+        $stmt = $con->prepare("
+            SELECT cesties.cesta
+            FROM cesties;
+    ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function setCestaPost($postId, $cestyId) {
         $cesta = Cesty::getAll('`cesta` = ?', [$cestyId]);
         if (!empty($cesta)) {

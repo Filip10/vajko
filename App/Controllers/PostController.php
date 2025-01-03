@@ -68,9 +68,7 @@ class PostController extends AControllerBase
         $post->setZdroj($urlInput);
 
         $post->save();
-        echo '<script>';
-        echo 'console.log("Sem sa dostanem!");';
-        echo '</script>';
+
         $idPost = $post->getId();
 
         $vybraneCesty = $this->request()->getValue('cesty');
