@@ -77,9 +77,8 @@ class PostController extends AControllerBase
 
 
         if (!empty($vybraneCesty)) {
-            foreach ($vybraneCesty as $option) {
-                $prepojenie = new Prepojenie_cesty_postController();
-                $prepojenie->save($idPost ,$post->setCestaPost($option));
+            foreach ($vybraneCesty as $cesta) {
+                $post->setCestaPost($idPost, $cesta);
             }
         }
 

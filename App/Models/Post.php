@@ -146,13 +146,18 @@ class Post extends Model
         return $result;
     }
 
-    public function setCestaPost($cestyId) {
+    public function setCestaPost($postId, $cestyId) {
         $cesta = Cesty::getAll('`cesta` = ?', [$cestyId]);
         if (!empty($cesta)) {
-            return $cesta[0]->getId();
+            $cestaCiselko = $cesta[0]->getId();
         }
-        else {
-            return null;
-        }
+        $con = Connection::connect();
+        $stmt = $con->prepare("
+            INSERT INTO prepojenie_cesty_posts (id_posts, id_cesty)
+            VALUES ($postId, $cestaCiselko);
+        ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
