@@ -87,7 +87,7 @@ class AdminController extends AControllerBase
                 } else { //ked cesta nie je vybrana
                     if (in_array($cesta, $allExistingSelectedCesties)) { //ked sa cesta v zozname uz nenachadza - pouzivatel unselectol
                         //delete these, which were unselected
-                        //$post->deletePostFromPrepojenie($id);
+                        $post->deletePostFromPrepojenie($id, $cesta['cesta']);
                     }
                 }
             }

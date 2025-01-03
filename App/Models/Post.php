@@ -156,11 +156,25 @@ class Post extends Model
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function deletePostFromPrepojenie($postId) {
+    public function deleteAllPostFromPrepojenie($postId) { //vymaže všetky prepojenia na daný post
         $con = Connection::connect();
         $stmt = $con->prepare("
             DELETE FROM prepojenie_cesty_posts
             WHERE id_posts = $postId;
+        ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function deletePostFromPrepojenie($postId, $cestyCesta) { //vymaže prepojenie len daná cesta/post
+        $cesta = Cesty::getAll('`cesta` = ?', [$cestyCesta]);
+        if (!empty($cesta)) {
+            $cestaCiselko = $cesta[0]->getId();
+        }
+        $con = Connection::connect();
+        $stmt = $con->prepare("
+            DELETE FROM prepojenie_cesty_posts
+            WHERE id_posts = $postId AND id_cesty = $cestaCiselko;
         ");
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
