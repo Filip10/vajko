@@ -71,6 +71,28 @@ class AdminController extends AControllerBase
         $post->setZdroj($urlInput);
 
         $post->save();
+
+        $vybraneCesty = $this->request()->getValue('cesty');
+        $allCesties = $post->getAllCesties();
+        $allExistingSelectedCesties = $post->getCestaByPostId($id);
+
+        if (!empty($vybraneCesty)) {
+            foreach ($allCesties as $cesta) {
+                // in_array($cesta, $selectedValues)
+                if (in_array($cesta['cesta'], $vybraneCesty)) { //ked je cesta vybrana
+                    if (!in_array($cesta, $allExistingSelectedCesties)) { //ked cesta este neexistuje v zozname
+                        //save these which are newly selected
+                        $post->setCestaPost($id, $cesta['cesta']);
+                    }
+                } else { //ked cesta nie je vybrana
+                    if (in_array($cesta, $allExistingSelectedCesties)) { //ked sa cesta v zozname uz nenachadza - pouzivatel unselectol
+                        //delete these, which were unselected
+                        //$post->deletePostFromPrepojenie($id);
+                    }
+                }
+            }
+        }
+
         return new RedirectResponse($this->url("home.ostatne"));
     }
 

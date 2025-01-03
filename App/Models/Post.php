@@ -156,9 +156,19 @@ class Post extends Model
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+    public function deletePostFromPrepojenie($postId) {
+        $con = Connection::connect();
+        $stmt = $con->prepare("
+            DELETE FROM prepojenie_cesty_posts
+            WHERE id_posts = $postId;
+        ");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
-    public function setCestaPost($postId, $cestyId) {
-        $cesta = Cesty::getAll('`cesta` = ?', [$cestyId]);
+    public function setCestaPost($postId, $cestyCesta) {
+        $cesta = Cesty::getAll('`cesta` = ?', [$cestyCesta]);
         if (!empty($cesta)) {
             $cestaCiselko = $cesta[0]->getId();
         }
