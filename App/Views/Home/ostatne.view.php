@@ -80,7 +80,7 @@ use App\Models\Post;
                 </div>
             </div>
 
-            <button id="like" data-id="<?= $post->getId() ?>" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
+            <button data-id="<?= $post->getId() ?>" class="likeAJAX btn btn-primary"><?= $post->getLikeCount() ?> ľudia
                 <?php if ($auth->isLogged() && $post->isLiker($auth->getLoggedUserName())) { ?>
                     vrátane vás
                 <?php } ?>

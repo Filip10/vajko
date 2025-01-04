@@ -1,21 +1,24 @@
 
 
 window.onload = async () => {
-    idPostu =  document.getElementById('like').getAttribute('data-id');
+    const buttons = document.querySelectorAll(".likeAJAX");
 
-    data = {id: idPostu, pocetLikov: 0}
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const idPostu = button.getAttribute('data-id');
+            data = {id: idPostu, pocetLikov: 0}
 
-    document.getElementById('like').onclick = () => {
-        fetch('http://localhost/?c=Like&a=toggleViaJson', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(response => response.json()).then(data => {
-            document.getElementById('like').innerHTML = `${data.pocetLikov}`
-        }).catch((error) => {
-            document.getElementById('like').innerText = 'Error: ' + error
-        })
-    }
+            fetch('http://localhost/?c=Like&a=toggleViaJson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json()).then(data => {
+                button.innerHTML = `${data.pocetLikov}`
+            }).catch((error) => {
+                button.innerText = 'Error: ' + error
+            })
+        });
+    });
 }
