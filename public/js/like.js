@@ -3,7 +3,7 @@
 window.onload = async () => {
     idPostu =  document.getElementById('like').getAttribute('data-id');
 
-    data = {id: 3, pocetLikov: 0}
+    data = {id: idPostu, pocetLikov: 0}
 
     document.getElementById('like').onclick = () => {
         fetch('http://localhost/?c=Like&a=toggleViaJson', {
