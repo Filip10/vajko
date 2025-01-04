@@ -1,7 +1,7 @@
 
 
 window.onload = async () => {
-    //idPostu = document.getElementById('cisloPostu').value;
+    idPostu =  document.getElementById('like').getAttribute('data-id');
 
     data = {id: 3, pocetLikov: 0}
 

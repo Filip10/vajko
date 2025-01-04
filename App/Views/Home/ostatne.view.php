@@ -80,8 +80,7 @@ use App\Models\Post;
                 </div>
             </div>
 
-            <p hidden id="cisloPostu"><?= $post->getId() ?></p>
-            <button id="like" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
+            <button id="like" data-id="<?= $post->getId() ?>" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
                 <?php if ($auth->isLogged() && $post->isLiker($auth->getLoggedUserName())) { ?>
                     vrátane vás
                 <?php } ?>
