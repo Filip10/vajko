@@ -124,8 +124,9 @@ class AdminController extends AControllerBase
             throw new HTTPException(404);
         } else {
             //FileStorage::deleteFile($post->getPicture());
+            $post->deleteAllPostFromPrepojenie($id);
             $post->delete();
-            return new RedirectResponse($this->url("home.index"));
+            return new RedirectResponse($this->url("home.ostatne"));
         }
     }
 }
