@@ -36,7 +36,17 @@ use App\Models\Post;
                             foreach ($cestas as $cesta) {
                                 //var_dump($cesta);
                                 ?>
-                                <button type="button" class="btn btn-outline-warning"><?php echo $cesta['cesta']; ?></button>
+                                <button type="button" class="btn btn-outline-<?php
+                                if (strpos($cesta['cesta'], 'D') === 0 || strpos($cesta['cesta'], 'R') === 0) { //dialnice a rychlostne cesty
+                                    echo 'success';
+                                } elseif (strpos($cesta['cesta'], 'II') === 0) { //cesty II. triedy
+                                    echo 'primary';
+                                } elseif (strpos($cesta['cesta'], 'I') === 0) { //cesty I. triedy
+                                    echo 'warning';
+                                } else { //ine
+                                    echo 'dark';
+                                }
+                                ?>"><?php echo $cesta['cesta']; ?></button>
                                 <?php
                             }
                             ?>
@@ -83,4 +93,3 @@ use App\Models\Post;
     }
     ?>
 </div>
-
