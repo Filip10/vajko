@@ -79,11 +79,14 @@ use App\Models\Post;
                     </svg>
                 </div>
             </div>
-            <a href="<?= $link->url('like.toggle', ['id' => $post->getId()]) ?>" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
+
+            <p hidden id="cisloPostu"><?= $post->getId() ?></p>
+            <button id="like" class="btn btn-primary"><?= $post->getLikeCount() ?> ľudia
                 <?php if ($auth->isLogged() && $post->isLiker($auth->getLoggedUserName())) { ?>
                     vrátane vás
                 <?php } ?>
-                to označili ako užitočné</a>
+                to označili ako užitočné</button>
+
             <?php if ($auth->isLogged() && $auth->getLoggedUserName() == "admin") { ?>
                 <a href="<?= $link->url('admin.edit', ['id' => $post->getId()]) ?>" class="btn btn-primary">Upraviť</a>
                 <a href="<?= $link->url('admin.delete', ['id' => $post->getId()]) ?>" class="btn btn-danger">Vymazať</a>
@@ -93,3 +96,4 @@ use App\Models\Post;
     }
     ?>
 </div>
+<script src="../../../public/js/like.js?v=<?= time() ?>"></script>

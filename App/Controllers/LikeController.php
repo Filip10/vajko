@@ -14,12 +14,14 @@ class LikeController extends AControllerBase
     {
         return $this->app->getAuth()->isLogged();
     }
+
     public function index(): Response
     {
         throw new HTTPException(501);
     }
 
-    public function toggle(){
+    public function toggle()
+    {
         // get id of post to toggle like
         $id = $this->request()->getValue("id");
         // get post from db
@@ -30,4 +32,18 @@ class LikeController extends AControllerBase
         return new RedirectResponse($this->url('home.ostatne'));
     }
 
+    public function toggleViaJson(): Response
+    {
+        $data = $this->request()->getRawBodyJSON();
+        // get id of post to toggle like
+        $id = $data->id;
+        // get post from db
+        $postToLike = Post::getOne($id);
+        // toggle like
+        $postToLike->likeToggle($this->app->getAuth()->getLoggedUserName());
+
+        $data->pocetLikov = $postToLike->getLikeCount();
+
+        return $this->json($data);
+    }
 }

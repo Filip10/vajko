@@ -61,4 +61,3 @@ use App\Models\Cesty;
     <button type="submit" class="btn btn-primary">Uložiť</button>
 </form>
 <script src="../../../public/js/date-check.js?v=<?= time() ?>"></script>
-<script src="../../../public/js/add-categories.js?v=<?= time() ?>"></script>
