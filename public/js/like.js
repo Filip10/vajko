@@ -15,7 +15,7 @@ window.onload = async () => {
                 },
                 body: JSON.stringify(data)
             }).then(response => response.json()).then(data => {
-                button.innerHTML = `${data.pocetLikov}`
+                button.innerHTML = `${data.pocetLikov} ľudia to označili ako užitočné`
             }).catch((error) => {
                 button.innerText = 'Error: ' + error
             })
