@@ -10,7 +10,6 @@ use App\Models\Post;
 
 ?>
 
-<p>Rekonštrukcie ciest I. triedy</p>
 <p>Opravy mostov</p>
 <p>Mestská hromadná doprava.</p>
 <p>Cyklochodníky</p>
@@ -50,15 +49,6 @@ use App\Models\Post;
                                 <?php
                             }
                             ?>
-<!--
-                            <button type="button" class="btn btn-outline-warning">I/66</button>
-                            <button type="button" class="btn btn-outline-info">II/540</button>
-                            <button type="button" class="btn btn-outline-dark">Obchvaty</button>
-
-                            <button type="button" class="btn btn-outline-warning">I/16</button>
-                            <button type="button" class="btn btn-outline-warning">I/72</button>
-                            <button type="button" class="btn btn-outline-info">II/531</button>
-                            -->
                         </div>
                     </div>
                     <a href="<?= $post->getZdroj() ?>?ref=dopravanaslovensku.sk"

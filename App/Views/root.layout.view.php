@@ -51,7 +51,7 @@
                     <a class="nav-link" href="<?= $link->url("home.zeleznice") ?>">Železnice</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $link->url("home.ostatne") ?>">Ostatné</a>
+                    <a class="nav-link" href="<?= $link->url("home.ostatne") ?>">Všetky</a>
                 </li>
             </ul>
 
