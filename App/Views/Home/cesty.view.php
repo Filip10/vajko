@@ -27,7 +27,7 @@ use App\Models\Post;
                             foreach ($cestas as $cesta) {
                                 //var_dump($cesta);
                                 ?>
-                                <button type="button" class="btn btn-outline-<?php
+                                <a href="<?= $link->url('home.cesty', ['cesta' => $cesta['cesta']]) ?>" type="button" class="btn btn-outline-<?php
                                 if (strpos($cesta['cesta'], 'D') === 0 || strpos($cesta['cesta'], 'R') === 0) { //dialnice a rychlostne cesty
                                     echo 'success';
                                 } elseif (strpos($cesta['cesta'], 'II') === 0) { //cesty II. triedy
@@ -37,7 +37,7 @@ use App\Models\Post;
                                 } else { //ine
                                     echo 'dark';
                                 }
-                                ?>"><?php echo $cesta['cesta']; ?></button>
+                                ?>"><?php echo $cesta['cesta']; ?></a>
                                 <?php
                             }
                             ?>

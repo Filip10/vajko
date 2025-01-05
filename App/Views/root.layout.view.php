@@ -48,7 +48,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $link->url("home.zeleznice") ?>">Železnice</a>
+                    <a class="nav-link" href="<?= $link->url("home.cesty", ['cesta' => 'Železnice']) ?>">Železnice</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $link->url("home.ostatne") ?>">Všetky</a>
