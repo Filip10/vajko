@@ -28,23 +28,23 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="<?= $link->url("home.dialnice") ?>" aria-expanded="false">Diaľnice</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">D1</a></li>
-                        <li><a class="dropdown-item" href="#">D2</a></li>
-                        <li><a class="dropdown-item" href="#">D3</a></li>
-                        <li><a class="dropdown-item" href="#">D4</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'D1']) ?>">D1</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'D2']) ?>">D2</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'D3']) ?>">D3</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'D4']) ?>">D4</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="<?= $link->url("home.rychlostnecesty") ?>" aria-expanded="false">Rýchlostné cesty</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">R1</a></li>
-                        <li><a class="dropdown-item" href="#">R2</a></li>
-                        <li><a class="dropdown-item" href="#">R3</a></li>
-                        <li><a class="dropdown-item" href="#">R4</a></li>
-                        <li><a class="dropdown-item" href="#">R5</a></li>
-                        <li><a class="dropdown-item" href="#">R6</a></li>
-                        <li><a class="dropdown-item" href="#">R7</a></li>
-                        <li><a class="dropdown-item" href="#">R8</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R1']) ?>">R1</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R2']) ?>">R2</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R3']) ?>">R3</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R4']) ?>">R4</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R5']) ?>">R5</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R6']) ?>">R6</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R7']) ?>">R7</a></li>
+                        <li><a class="dropdown-item" href="<?= $link->url("home.cesty", ['cesta' => 'R8']) ?>">R8</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

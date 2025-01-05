@@ -8,15 +8,18 @@
 
 use App\Models\Post;
 
-if (is_null($data)) {
-    echo '<p>V danej kategórií sa ešte nenachádzajú žiadne posty!</p>';
-} else {
+
 
 ?>
 <div class="row mb-3 p-3">
     <?php
     foreach ($data as $data2) {
         //@$dataPrijate['cesta']
+        if (empty($data2)) {
+            ?>
+            <p>V danej kategórií sa ešte nenachádzajú žiadne posty!</p>
+            <?php
+        } else {
 
         foreach ($data2 as $post) {
 
