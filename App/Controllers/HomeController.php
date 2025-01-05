@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\HTTPException;
 use App\Core\Responses\Response;
 use App\Models\Cesty;
 use App\Models\Dialnice;
@@ -72,8 +73,26 @@ class HomeController extends AControllerBase
     }
     public function cesty(): Response
     {
+        $cesta = $this->request()->getValue('cesta');
         $posty = Post::getAll();
-        return $this->html($posty);
+
+
+        $postySpravne = [];
+
+        foreach ($posty as $post) {
+            $cestas = $post->getCestaByPostId($post->getId());
+                foreach ($cestas as $cestat) {
+                    if ($cesta == $cestat['cesta']) {
+                        array_push($postySpravne, $post);
+                    }
+                }
+        }
+
+        return $this->html(
+            [
+                'post' => $postySpravne
+            ]
+        );
     }
 
     /**

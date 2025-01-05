@@ -1,6 +1,6 @@
 <?php
 
-/** @var Post[] $data */
+/** @var Array $data */
 /** @var \App\Models\Post $post */
 /** @var \App\Models\Cesty $cesty */
 /** @var \App\Core\LinkGenerator $link */
@@ -8,10 +8,19 @@
 
 use App\Models\Post;
 
+if (is_null($data)) {
+    echo '<p>V danej kategórií sa ešte nenachádzajú žiadne posty!</p>';
+} else {
+
 ?>
 <div class="row mb-3 p-3">
     <?php
-    foreach ($data as $post) {
+    foreach ($data as $data2) {
+        //@$dataPrijate['cesta']
+
+        foreach ($data2 as $post) {
+
+        $cestas = $post->getCestaByPostId($post->getId());
         ?>
         <div class="col-md-6 mb-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
@@ -22,7 +31,6 @@ use App\Models\Post;
                     <div class="row mb-2">
                         <div class="col">
                             <?php
-                            $cestas = $post->getCestaByPostId($post->getId());
 
                             foreach ($cestas as $cesta) {
                                 //var_dump($cesta);
@@ -69,7 +77,9 @@ use App\Models\Post;
                 to označili ako užitočné</button>
         </div>
         <?php
+        }
     }
+}
     ?>
 </div>
 <script src="../../../public/js/like.js?v=<?= time() ?>"></script>
