@@ -70,11 +70,7 @@ use App\Models\Post;
                 </div>
             </div>
 
-            <button data-id="<?= $post->getId() ?>" class="likeAJAX btn btn-primary"><?= $post->getLikeCount() ?> ľudia
-                <?php if ($auth->isLogged() && $post->isLiker($auth->getLoggedUserName())) { ?>
-                    vrátane vás
-                <?php } ?>
-                to označili ako užitočné</button>
+            <button data-id="<?= $post->getId() ?>" class="likeAJAX btn btn-primary"><?= $post->getLikeCount() ?> ľudia to označili ako užitočné</button>
 
             <?php if ($auth->isLogged() && $auth->getLoggedUserName() == "admin") { ?>
                 <a href="<?= $link->url('admin.edit', ['id' => $post->getId()]) ?>" class="btn btn-primary">Upraviť</a>
