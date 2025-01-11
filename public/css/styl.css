@@ -21,8 +21,22 @@ body {
     background-color: gray;
 }
 .btn.btn-outline-warning:hover {
+    background-color: darkorange;
+    color: white;
+}
+.btn.btn-outline-warning {
+    border-color: darkorange;
+    background-color: white;
+    color: darkorange;
+}
+.btn.btn-outline-primary:hover {
     background-color: #ffc107;
     color: white;
+}
+.btn.btn-outline-primary {
+    border-color: #ffc107;
+    background-color: white;
+    color: #ffc107;
 }
 .btn.btn-outline-dark:hover {
     background-color: #343a40;
