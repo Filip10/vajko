@@ -64,7 +64,6 @@ use App\Models\Post;
                          role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
                          focusable="false"><title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c"></rect>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Dnes 24</text>
                         <image href="obrazky/logo_<?= $post->getZdrojSkrateny() ?>.png" x="0" y="0" width="100%" height="100%"/>
                     </svg>
                 </div>
