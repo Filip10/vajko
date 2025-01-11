@@ -57,11 +57,6 @@ class PostController extends AControllerBase
         $date = $this->request()->getValue('date');
         $urlInput = (string)($this->request()->getValue('url'));
 
-        if (empty($nazov) || empty($popis) || empty($date) || empty($urlInput)) {
-            // Handle the error, e.g., return an error response or show a message
-            throw new Exception("Všetky polia je potrebné vyplniť!");
-        }
-
         $post->setNazov($nazov);
         $post->setPopis($popis);
         $post->setDatumPublikovania($date);

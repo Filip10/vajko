@@ -57,13 +57,11 @@ class AdminController extends AControllerBase
     {
         $id = (int)$this->request()->getValue('id');
 
-
-        //$post = new Post(); // toto je pre nový post
-        $post = Post::getOne($id); //toto je pre upravenie postu
+        $post = Post::getOne($id);
         $post->setAutor($this->app->getAuth()->getLoggedUserName());
         $post->setNazov($this->request()->getValue('nazov'));
         $post->setPopis($this->request()->getValue('popis'));
-        $inputString = $this->request()->getValue('datumPublikovania');
+        $inputString = $this->request()->getValue('date');
         $dateTime = new DateTime($inputString);
         $outputString = $dateTime->format('d.m.Y');
         $post->setDatumPublikovania($outputString);
