@@ -1,14 +1,11 @@
 document.getElementById('myForm').addEventListener('submit', function(event) {
-    // Track the overall form validity
     let isFormValid = true;
 
-    // Run each validation function and update the overall validity
     if (!validateDate()) isFormValid = false;
     if (!validateText()) isFormValid = false;
     if (!validateNazov()) isFormValid = false;
     if (!validateUrl()) isFormValid = false;
 
-    // If any validation fails, prevent form submission
     if (!isFormValid) {
         event.preventDefault();
         console.log('Form submission prevented due to invalid form fields');
@@ -40,12 +37,12 @@ function validateText() {
     const validationMessage = document.getElementById('text-validation-message');
 
     if (inputText.trim() !== '') {
-        validationMessage.style.display = 'none'; // Hide any previous error message
+        validationMessage.style.display = 'none';
         console.log('Valid text');
         return true;
     } else {
         validationMessage.textContent = 'Nezabudni zadať text!';
-        validationMessage.style.display = 'block'; // Show error message
+        validationMessage.style.display = 'block';
         console.log('Invalid text');
         return false;
     }
