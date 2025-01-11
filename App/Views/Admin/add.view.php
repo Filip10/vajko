@@ -57,8 +57,8 @@ use App\Models\Cesty;
             <input type="url" class="form-control" name="url" id="post-url" value="">
         </div>
         <div id="url-validation-message" style="color: red;"></div>
-        <div class="text-center text-danger mb-3">
-            <?= @$data2['message'] ?>
+        <div class="text-danger mb-3">
+            <?= $_GET['message'] ?>
         </div>
     </div>
 
