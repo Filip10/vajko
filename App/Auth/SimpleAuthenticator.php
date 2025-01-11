@@ -8,9 +8,18 @@ class SimpleAuthenticator extends DummyAuthenticator {
     public function  login($login, $password): bool
     {
         $users = User::getAll();
+        $userId = null;
+        $userExists = false;
+        foreach ($users as $user) {
+            if ($user->getName() == $login) {
+                $userId = $user->getId();
+                $userExists = true;
+                break;
+            }
+        }
 
-        if (isset($users[$login])) { //ked sa meno nachadza v DB
-            if (password_verify($password, $users[$login])) { //skontroluj heslo
+        if ($userExists) { //ked sa meno nachadza v DB
+            if (password_verify($password, User::getOne($userId)->getPassword())) { //skontroluj heslo
                 $_SESSION['user'] = $login;
                 return true;
             } else {
