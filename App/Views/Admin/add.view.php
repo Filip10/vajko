@@ -58,7 +58,9 @@ use App\Models\Cesty;
         </div>
         <div id="url-validation-message" style="color: red;"></div>
         <div class="text-danger mb-3">
-            <?= $_GET['message'] ?>
+            <?php if (isset($_GET['message'])){
+                echo $_GET['message'];
+            } ?>
         </div>
     </div>
 
