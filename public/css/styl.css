@@ -33,8 +33,13 @@ body {
     color: white;
 }
 .btn.btn-outline-success:hover {
-    background-color: black;
-    color: black;
+    background-color: limegreen;
+    color: white;
+}
+.btn.btn-outline-success {
+    background-color: white;
+    border-color: limegreen;
+    color: limegreen;
 }
 p.obsah, h2.obsah {
     margin-left: 20px;
