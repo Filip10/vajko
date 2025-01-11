@@ -24,7 +24,7 @@ function validateDate() {
     const currentDate = new Date().toISOString().split('T')[0];
     const validationMessage = document.getElementById('date-validation-message');
 
-    if (inputDate < currentDate) {
+    if (inputDate <= currentDate) {
         validationMessage.textContent = '';
         console.log('Valid date');
         return true;
