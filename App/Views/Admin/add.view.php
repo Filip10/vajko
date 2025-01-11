@@ -1,6 +1,7 @@
 <?php
 
 /** @var \App\Core\LinkGenerator $link */
+/** @var Array $data2 */
 /** @var Cesty[] $data */
 
 use App\Models\Post;
@@ -56,6 +57,9 @@ use App\Models\Cesty;
             <input type="url" class="form-control" name="url" id="post-url" value="">
         </div>
         <div id="url-validation-message" style="color: red;"></div>
+        <div class="text-center text-danger mb-3">
+            <?= @$data2['message'] ?>
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Uložiť</button>

@@ -49,33 +49,47 @@ class PostController extends AControllerBase
 
     public function add(): Response
     {
-        $post = new Post(); // toto je pre nový post
-        $post->setAutor($this->app->getAuth()->getLoggedUserName());
-
-        $nazov = $this->request()->getValue('nazov');
-        $popis = $this->request()->getValue('popis');
-        $date = $this->request()->getValue('date');
-        $urlInput = (string)($this->request()->getValue('url'));
-
-        $post->setNazov($nazov);
-        $post->setPopis($popis);
-        $post->setDatumPublikovania($date);
-        $post->setZdroj($urlInput);
-
-        $post->save();
-
-        $idPost = $post->getId();
-
-        $vybraneCesty = $this->request()->getValue('cesty');
-
-
-        if (!empty($vybraneCesty)) {
-            foreach ($vybraneCesty as $cesta) {
-                $post->setCestaPost($idPost, $cesta);
+        $existuje = false;
+        $posts = Post::getAll();
+        foreach ($posts as $post) {
+            if ($post->getZdroj() === $this->request()->getValue('url')) {
+                $existuje = true;
+                break;
             }
         }
 
-        return new RedirectResponse($this->url("home.ostatne"));
+        if (!$existuje) {
+            $post = new Post(); // toto je pre nový post
+            $post->setAutor($this->app->getAuth()->getLoggedUserName());
+
+            $nazov = $this->request()->getValue('nazov');
+            $popis = $this->request()->getValue('popis');
+            $date = $this->request()->getValue('date');
+            $urlInput = (string)($this->request()->getValue('url'));
+
+            $post->setNazov($nazov);
+            $post->setPopis($popis);
+            $post->setDatumPublikovania($date);
+            $post->setZdroj($urlInput);
+
+            $post->save();
+
+            $idPost = $post->getId();
+
+            $vybraneCesty = $this->request()->getValue('cesty');
+
+
+            if (!empty($vybraneCesty)) {
+                foreach ($vybraneCesty as $cesta) {
+                    $post->setCestaPost($idPost, $cesta);
+                }
+            }
+
+            return new RedirectResponse($this->url("home.ostatne"));
+        } else {
+            $data2 = ['message' => 'Post so zadanou URL už existuje!'];
+            return new RedirectResponse($this->url("admin.add", $data2));
+        }
     }
 
     public function edit(): Response
