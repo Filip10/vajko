@@ -34,6 +34,24 @@ body {
     color: white;
 }
 .btn.btn-outline-primary {
+    border-color: black;
+    background-color: black;
+    color: white;
+}
+.btn.btn-outline-info:hover {
+    background-color: white;
+    color: black;
+}
+.btn.btn-outline-light {
+    border-color: blue;
+    background-color: blue;
+    color: white;
+}
+.btn.btn-outline-light:hover {
+    background-color: white;
+    color: blue;
+}
+.btn.btn-outline-info {
     border-color: #ffc107;
     background-color: white;
     color: #ffc107;
