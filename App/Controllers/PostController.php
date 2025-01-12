@@ -128,7 +128,21 @@ class PostController extends AControllerBase
         $posty = Post::getAll();
         $j = 0;
         for ($i = $data->offset; $i < count($posty) && $i < $data->offset + 6; $i++) {
-            $data->array[$j] = $posty[$i];
+
+            $post = $posty[$i];
+
+            $postArray = [
+                'id' => $post->getId(),
+                'nazov' => $post->getNazov(),
+                'datumPublikovania' => $post->getDatumPublikovania(),
+                'popis' => $post->getPopis(),
+                'zdroj' => $post->getZdroj(),
+                'zdrojSkrateny' => $post->getZdrojSkrateny(),
+                'cestas' => $post->getCestaByPostId($post->getId()),
+                'likeCount' => $post->getLikeCount(),
+            ];
+
+            $data->array[$j] = $postArray;
             $j++;
         }
         $data->offset = $data->offset + 6;
