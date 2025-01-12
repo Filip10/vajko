@@ -39,6 +39,7 @@ use App\Models\Cesty;
         <div id="date-validation-message" style="color: red;"></div>
     </div>
 
+    <!-- cesty (Cesties) -->
     <label for="post-cesty">Cesty:</label>
     <select id="sendJsonNope" name="cesty[]" multiple="multiple" style="width: 100%">
         <?php
