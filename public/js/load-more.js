@@ -10,8 +10,12 @@ window.onload = async () => {
             },
             body: JSON.stringify(data)
         }).then(response => response.json()).then(data => {
-            document.getElementById('load-more').innerHTML = `Offset: ${data.array[0]}`
             document.getElementById('load-more').setAttribute('data-offset', data.offset)
+            for (let i = 0; i < 6; i++) {
+                if (data.array[i] !== undefined) {
+                    document.getElementById('post-container').append(data.array[i])
+                }
+            }
         }).catch((error) => {
             document.getElementById('load-more').innerText = 'Error: ' + error
         })

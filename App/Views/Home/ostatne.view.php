@@ -17,12 +17,12 @@ use App\Models\Post;
 <?php if ($auth->isLogged() && $auth->getLoggedUserName()) { ?>
     <a href="<?= $link->url("admin.add") ?>" class="btn btn-primary">Pridaj príspevok</a>
 <?php } ?>
-<div class="row mb-3 p-3">
+<div id="post-container" class="row mb-3 p-3">
     <?php
     for ($i = 0; $i < count($data) && $i < 6; $i++) {
         $post = $data[$i];
         ?>
-        <div id="post-container" class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-2"><?= $post->getNazov() ?></h3>
@@ -80,7 +80,7 @@ use App\Models\Post;
         <?php
     }
     ?>
-    <button id="load-more" class="btn btn-primary" data-offset="6">Načítaj viac</button>
 </div>
+<button id="load-more" class="btn btn-primary mb-4" data-offset="6">Načítaj viac</button>
 <script src="../../../public/js/like.js?v=<?= time() ?>"></script>
 <script src="../../../public/js/load-more.js?v=<?= time() ?>"></script>
