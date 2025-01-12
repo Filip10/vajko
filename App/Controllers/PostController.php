@@ -125,8 +125,13 @@ class PostController extends AControllerBase
     public function showMore()
     {
         $data = $this->request()->getRawBodyJSON();
+        $posty = Post::getAll();
+        $j = 0;
+        for ($i = $data->offset; $i < count($posty) && $i < $data->offset + 6; $i++) {
+            $data->array[$j] = $posty[$i];
+            $j++;
+        }
         $data->offset = $data->offset + 6;
-        $data->array[0] = 125;
 
         return $this->json($data);
     }
