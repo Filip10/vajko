@@ -19,7 +19,8 @@ use App\Models\Post;
 <?php } ?>
 <div class="row mb-3 p-3">
     <?php
-    foreach ($data as $post) {
+    for ($i = 0; $i < count($data) && $i < 6; $i++) {
+        $post = $data[$i];
         ?>
         <div class="col-md-6 mb-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
@@ -79,5 +80,6 @@ use App\Models\Post;
         <?php
     }
     ?>
+    <button id="load-more" class="btn btn-primary" data-offset="6">Načítaj viac</button>
 </div>
 <script src="../../../public/js/like.js?v=<?= time() ?>"></script>
