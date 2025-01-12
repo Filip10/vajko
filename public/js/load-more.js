@@ -1,6 +1,5 @@
 data = {offset: 0, array: []}
 
-window.onload = async () => {
     document.getElementById('load-more').onclick = () => {
         data.offset = document.getElementById('load-more').getAttribute('data-offset')
         fetch('http://localhost/?c=Post&a=showMore', {
@@ -57,5 +56,5 @@ window.onload = async () => {
         }).catch((error) => {
             document.getElementById('load-more').innerText = 'Error: ' + error
         })
-    }
+
 }
