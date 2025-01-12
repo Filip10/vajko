@@ -50,6 +50,8 @@ window.onload = async () => {
                 </div>
             `;
                     document.getElementById('post-container').insertAdjacentHTML('beforeend', postHTML);
+                } else {
+                    document.getElementById('load-more').style.display = 'none';
                 }
             }
         }).catch((error) => {
