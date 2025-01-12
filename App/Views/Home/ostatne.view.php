@@ -83,3 +83,4 @@ use App\Models\Post;
     <button id="load-more" class="btn btn-primary" data-offset="6">Načítaj viac</button>
 </div>
 <script src="../../../public/js/like.js?v=<?= time() ?>"></script>
+<script src="../../../public/js/load-more.js?v=<?= time() ?>"></script>

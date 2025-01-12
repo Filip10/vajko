@@ -121,4 +121,12 @@ class PostController extends AControllerBase
             return new RedirectResponse($this->url("home.index"));
         }
     }
+
+    public function showMore()
+    {
+        $data = $this->request()->getRawBodyJSON();
+        $data->offset = $data->offset + 6;
+
+        return $this->json($data);
+    }
 }
