@@ -21,7 +21,7 @@ document.getElementById('load-more').onclick = () => {
                             <div class="row mb-2">
                                 <div class="col">
                                     ${post.cestas.map(cesta => `
-                                        <a href="${cesta.url}" type="button" class="btn btn-outline-${cesta.cesta.startsWith('D') || cesta.cesta.startsWith('R') ? 'success' : cesta.cesta.startsWith('II') ? 'primary' : cesta.cesta.startsWith('I') ? 'warning' : 'dark'}">${cesta.cesta}</a>
+                                        <a href="?c=home&a=cesty&cesta=${cesta.cesta}" type="button" class="btn btn-outline-${cesta.cesta.startsWith('D') || cesta.cesta.startsWith('R') ? 'success' : cesta.cesta.startsWith('II') ? 'primary' : cesta.cesta.startsWith('I') ? 'warning' : 'dark'}">${cesta.cesta}</a>
                                     `).join('')}
                                 </div>
                             </div>
