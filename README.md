@@ -23,6 +23,15 @@ pridávanie článkov s rovnakou URL, aby používatelia nepridali rovnaký čl�
 
 Pokiaľ máte nejaké nápady alebo narazíte na chybu, neváhajte a dajte nám to vedieť na [info@dopravanaslovensku.sk](mailto:info@dopravanaslovensku.sk).
 
+# K databáze
+
+Pre jednotlivé cesty je tabuľka **"cesties"**, v ktorej sú po inicializácií uložené všetky cesty.
+Pre informácie o jednotlivých diaľniciach je tu tabuľka **"dialnices"**.
+Pre jednotlivé označenie ako užitočný je tu tabuľka **"likes"**, ktorá si pamätá jednotlivé označenia.
+Potom je tu tabuľka používateľov **"users"**, kde sú uložené ich prihlasovacie údaje.
+Tabuľka **"posts"** obsahuje jednotlivé údaje o príspevkoch.
+Informácie o tom, ktorá cesta je priradená ku ktorému príspevku obsahuje tabuľka **"prepojenie_cesty_posts"**.
+
 # O použitom frameworku
 
 Tento framework vznikol na podporu výučby predmetu Vývoj aplikácií pre intranet a intrenate (VAII)
