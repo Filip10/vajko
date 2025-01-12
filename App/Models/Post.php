@@ -183,7 +183,7 @@ class Post extends Model
 
     public function setCestaPost($postId, $cestyCesta) {
         $cesta = Cesty::getAll('`cesta` = ?', [$cestyCesta]);
-        if (!empty($cesta)) {
+        if (!empty($cesta)) { //kontrola, či cesta existuje
             $cestaCiselko = $cesta[0]->getId();
         }
         $con = Connection::connect();

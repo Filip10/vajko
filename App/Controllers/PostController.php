@@ -9,6 +9,7 @@ use App\Core\Responses\RedirectResponse;
 use App\Core\Responses\Response;
 use App\Helpers\FileStorage;
 use App\Models\Post;
+use App\Models\Cesty;
 use App\Models\Prepojenie_cesty_post;
 use PDO;
 
@@ -51,7 +52,7 @@ class PostController extends AControllerBase
     {
         $existuje = false;
         $posts = Post::getAll();
-        foreach ($posts as $post) {
+        foreach ($posts as $post) { //kontrola existencie zadane url
             if ($post->getZdroj() === $this->request()->getValue('url')) {
                 $existuje = true;
                 break;
@@ -59,7 +60,7 @@ class PostController extends AControllerBase
         }
 
         if (!$existuje) {
-            $post = new Post(); // toto je pre nový post
+            $post = new Post();
             $post->setAutor($this->app->getAuth()->getLoggedUserName());
 
             $nazov = $this->request()->getValue('nazov');
@@ -67,24 +68,26 @@ class PostController extends AControllerBase
             $date = $this->request()->getValue('date');
             $urlInput = (string)($this->request()->getValue('url'));
 
-            $post->setNazov($nazov);
-            $post->setPopis($popis);
-            $post->setDatumPublikovania($date);
-            $post->setZdroj($urlInput);
+            if ($nazov != '' && $popis != '' && $urlInput != '') { //kontrola prázdnych elementov
 
-            $post->save();
+                $post->setNazov($nazov);
+                $post->setPopis($popis);
+                $post->setDatumPublikovania($date);
+                $post->setZdroj($urlInput);
 
-            $idPost = $post->getId();
+                $post->save();
 
-            $vybraneCesty = $this->request()->getValue('cesty');
+                $idPost = $post->getId();
+
+                $vybraneCesty = $this->request()->getValue('cesty');
 
 
-            if (!empty($vybraneCesty)) {
-                foreach ($vybraneCesty as $cesta) {
-                    $post->setCestaPost($idPost, $cesta);
+                if (!empty($vybraneCesty)) {
+                    foreach ($vybraneCesty as $cesta) { //kontrola, či cesta existuje sa robí v setCestaPost
+                        $post->setCestaPost($idPost, $cesta);
+                    }
                 }
             }
-
             return new RedirectResponse($this->url("home.ostatne"));
         } else {
             $data2 = ['message' => 'Post so zadanou URL už existuje!'];
