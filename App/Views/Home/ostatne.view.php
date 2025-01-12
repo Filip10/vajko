@@ -81,6 +81,6 @@ use App\Models\Post;
     }
     ?>
 </div>
-<button id="load-more" class="btn btn-primary mb-4" data-offset="6">Načítaj viac</button>
+<button id="load-more" class="btn btn-primary mb-4" data-offset="6" data-adminLogged="<?= ($auth->isLogged() && $auth->getLoggedUserName() == "admin") ?>">Načítaj viac</button>
 <script src="../../../public/js/like.js?v=<?= time() ?>"></script>
 <script src="../../../public/js/load-more.js?v=<?= time() ?>"></script>

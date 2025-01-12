@@ -40,6 +40,10 @@ document.getElementById('load-more').onclick = () => {
                         </div>
                     </div>
                     <button data-id="${post.id}" class="likeAJAX btn btn-primary">${post.likeCount} ľudia to označili ako užitočné</button>
+                    ${document.getElementById('load-more').getAttribute('data-adminLogged') !== '' ? `
+                        <a href="?c=admin&a=edit&id=${post.id}" class="btn btn-primary">Upraviť</a>
+                        <a href="?c=admin&a=delete&id=${post.id}" class="btn btn-danger">Vymazať</a>
+                    ` : ''}
                 </div>
             `;
                 document.getElementById('post-container').insertAdjacentHTML('beforeend', postHTML);
