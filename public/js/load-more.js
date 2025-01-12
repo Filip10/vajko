@@ -1,4 +1,4 @@
-data = {offset: 0}
+data = {offset: 0, array: []}
 
 window.onload = async () => {
     document.getElementById('load-more').onclick = () => {
@@ -10,7 +10,7 @@ window.onload = async () => {
             },
             body: JSON.stringify(data)
         }).then(response => response.json()).then(data => {
-            document.getElementById('load-more').innerHTML = `Offset: ${data.offset}`
+            document.getElementById('load-more').innerHTML = `Offset: ${data.array[0]}`
             document.getElementById('load-more').setAttribute('data-offset', data.offset)
         }).catch((error) => {
             document.getElementById('load-more').innerText = 'Error: ' + error

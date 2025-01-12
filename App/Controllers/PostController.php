@@ -126,6 +126,7 @@ class PostController extends AControllerBase
     {
         $data = $this->request()->getRawBodyJSON();
         $data->offset = $data->offset + 6;
+        $data->array[0] = 125;
 
         return $this->json($data);
     }

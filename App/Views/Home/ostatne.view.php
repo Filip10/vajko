@@ -22,7 +22,7 @@ use App\Models\Post;
     for ($i = 0; $i < count($data) && $i < 6; $i++) {
         $post = $data[$i];
         ?>
-        <div class="col-md-6 mb-3">
+        <div id="post-container" class="col-md-6 mb-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-2"><?= $post->getNazov() ?></h3>
