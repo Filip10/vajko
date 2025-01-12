@@ -1,19 +1,17 @@
 data = {offset: 0, array: []}
 
-    document.getElementById('load-more').onclick = () => {
-        data.offset = document.getElementById('load-more').getAttribute('data-offset')
-        fetch('http://localhost/?c=Post&a=showMore', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(response => response.json()).then(data => {
-            document.getElementById('load-more').setAttribute('data-offset', data.offset)
-            for (let i = 0; i < 6; i++) {
-                if (data.array[i] !== undefined) {
-                    post = data.array[i];
-                    const postHTML = `
+document.getElementById('load-more').onclick = () => {
+    data.offset = document.getElementById('load-more').getAttribute('data-offset')
+    fetch('http://localhost/?c=Post&a=showMore', {
+        method: 'POST', headers: {
+            'Content-Type': 'application/json'
+        }, body: JSON.stringify(data)
+    }).then(response => response.json()).then(data => {
+        document.getElementById('load-more').setAttribute('data-offset', data.offset)
+        for (let i = 0; i < 6; i++) {
+            if (data.array[i] !== undefined) {
+                post = data.array[i];
+                const postHTML = `
                 <div class="col-md-6 mb-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
@@ -23,11 +21,7 @@ data = {offset: 0, array: []}
                             <div class="row mb-2">
                                 <div class="col">
                                     ${post.cestas.map(cesta => `
-                                        <a href="${cesta.url}" type="button" class="btn btn-outline-${
-                    cesta.cesta.startsWith('D') || cesta.cesta.startsWith('R') ? 'success' :
-                        cesta.cesta.startsWith('II') ? 'primary' :
-                            cesta.cesta.startsWith('I') ? 'warning' : 'dark'
-                }">${cesta.cesta}</a>
+                                        <a href="${cesta.url}" type="button" class="btn btn-outline-${cesta.cesta.startsWith('D') || cesta.cesta.startsWith('R') ? 'success' : cesta.cesta.startsWith('II') ? 'primary' : cesta.cesta.startsWith('I') ? 'warning' : 'dark'}">${cesta.cesta}</a>
                                     `).join('')}
                                 </div>
                             </div>
@@ -48,13 +42,13 @@ data = {offset: 0, array: []}
                     <button data-id="${post.id}" class="likeAJAX btn btn-primary">${post.likeCount} ľudia to označili ako užitočné</button>
                 </div>
             `;
-                    document.getElementById('post-container').insertAdjacentHTML('beforeend', postHTML);
-                } else {
-                    document.getElementById('load-more').style.display = 'none';
-                }
+                document.getElementById('post-container').insertAdjacentHTML('beforeend', postHTML);
+            } else {
+                document.getElementById('load-more').style.display = 'none';
             }
-        }).catch((error) => {
-            document.getElementById('load-more').innerText = 'Error: ' + error
-        })
+        }
+    }).catch((error) => {
+        document.getElementById('load-more').innerText = 'Error: ' + error
+    })
 
 }
